@@ -1,0 +1,12 @@
+{
+  "name": "dkf-consultoria",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./public/assets/tailwind.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./public/assets/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

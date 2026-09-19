@@ -3,64 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DKF Consultoria – Soluções Digitais para seu Negócio</title>
-  <meta name="description" content="DKF Consultoria – Sites e landing pages profissionais para pequenos negócios. Mais clientes pelo WhatsApp, presença digital em poucos dias. Orçamento gratuito e sem compromisso." />
+  <title>DKF Consultoria – Sites profissionais em até 7 dias, a partir de R$250</title>
+  <meta name="description" content="DKF Consultoria – Sites e landing pages profissionais para pequenos negócios. Mais clientes pelo WhatsApp, entrega em até 7 dias, a partir de R$250. Orçamento gratuito." />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="canonical" href="https://dkf-consultoria.vercel.app/" />
 
-  <!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-            }
-          }
-        }
-      }
-    }
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DKF Consultoria" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://dkf-consultoria.vercel.app/" />
+  <meta property="og:title" content="DKF Consultoria – Sites profissionais em até 7 dias" />
+  <meta property="og:description" content="Sites e landing pages que trazem clientes pelo WhatsApp. A partir de R$250, entrega em até 7 dias. Orçamento gratuito." />
+  <meta property="og:image" content="https://dkf-consultoria.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DKF Consultoria – Sites profissionais em até 7 dias" />
+  <meta name="twitter:description" content="Sites e landing pages que trazem clientes pelo WhatsApp. A partir de R$250, entrega em até 7 dias." />
+  <meta name="twitter:image" content="https://dkf-consultoria.vercel.app/og-image.jpg" />
+
+  <link rel="stylesheet" href="/assets/tailwind.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DKF Consultoria",
+    "description": "Criação de sites, landing pages, aplicativos simples e automações para pequenos negócios.",
+    "url": "https://dkf-consultoria.vercel.app/",
+    "image": "https://dkf-consultoria.vercel.app/og-image.jpg",
+    "logo": "https://dkf-consultoria.vercel.app/icon-512.png",
+    "telephone": "+5551999027441",
+    "email": "mouradieferson4@gmail.com",
+    "founder": { "@type": "Person", "name": "Dieferson Moura" },
+    "areaServed": { "@type": "Country", "name": "Brasil" },
+    "priceRange": "A partir de R$250",
+    "sameAs": ["https://wa.me/5551999027441"],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Site essencial", "price": "250", "priceCurrency": "BRL" },
+      { "@type": "Offer", "name": "Site profissional", "price": "550", "priceCurrency": "BRL" }
+    ]
+  }
   </script>
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    .hero-bg {
-      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-    }
-    .btn-primary {
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
-    }
-    .btn-whatsapp {
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .btn-whatsapp:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
-    }
-    .card-hover {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-  </style>
-
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -75,8 +64,9 @@
         <a href="#sobre" class="hover:text-brand-600 font-medium">Sobre</a>
         <a href="#servicos" class="hover:text-brand-600 font-medium">Serviços</a>
         <a href="#projetos" class="hover:text-brand-600 font-medium">Projetos</a>
-        <a href="#depoimentos" class="hover:text-brand-600 font-medium">Depoimentos</a>
+        <a href="#planos" class="hover:text-brand-600 font-medium">Planos</a>
         <a href="#como-funciona" class="hover:text-brand-600 font-medium">Como funciona</a>
+        <a href="#faq" class="hover:text-brand-600 font-medium">Dúvidas</a>
         <a href="#contato" class="hover:text-brand-600 font-medium">Contato</a>
       </nav>
 
@@ -92,7 +82,14 @@
       </a>
 
       <!-- Botão menu mobile -->
-      <button id="menuBtn" class="md:hidden text-2xl text-gray-700">☰</button>
+      <button
+        id="menuBtn"
+        type="button"
+        class="md:hidden text-2xl text-gray-700 px-2"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="menuMobile"
+      >☰</button>
     </div>
 
     <!-- Menu mobile -->
@@ -102,8 +99,9 @@
         <a href="#sobre" class="mobile-link font-medium">Sobre</a>
         <a href="#servicos" class="mobile-link font-medium">Serviços</a>
         <a href="#projetos" class="mobile-link font-medium">Projetos</a>
-        <a href="#depoimentos" class="mobile-link font-medium">Depoimentos</a>
+        <a href="#planos" class="mobile-link font-medium">Planos</a>
         <a href="#como-funciona" class="mobile-link font-medium">Como funciona</a>
+        <a href="#faq" class="mobile-link font-medium">Dúvidas</a>
         <a href="#contato" class="mobile-link font-medium">Contato</a>
         <a
           href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20saber%20mais%20sobre%20solu%C3%A7%C3%B5es%20digitais."
@@ -120,22 +118,23 @@
   <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center text-white px-4">
     <div class="max-w-3xl">
       <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
-        DKF Consultoria – Soluções digitais para alavancar seu negócio
+        Site profissional para o seu negócio em até 7 dias
       </h1>
       <p class="text-lg md:text-xl mb-8 text-gray-100">
-        Sites e landing pages profissionais para pequenos negócios. Mais clientes pelo WhatsApp, entrega rápida e preço acessível.
+        A DKF Consultoria cria sites e landing pages que trazem clientes pelo WhatsApp — a partir de R$250, sem você precisar entender nada de tecnologia.
       </p>
       <a
         href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20um%20projeto%20para%20meu%20neg%C3%B3cio."
         target="_blank"
+        rel="noopener"
         class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary"
       >
-        Quero um projeto
+        Quero um orçamento gratuito
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>
       </a>
-      <p class="mt-5 text-sm text-gray-300">A partir de R$250 · Entrega em até 7 dias · Orçamento gratuito</p>
+      <p class="mt-5 text-sm text-gray-100">A partir de R$250 · Entrega em até 7 dias · Resposta no mesmo dia</p>
     </div>
   </section>
 
@@ -143,8 +142,12 @@
   <section id="sobre" class="py-20 px-4">
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <img
-        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop"
-        alt="Pessoa trabalhando no computador"
+        src="/img/sobre.webp"
+        alt="Pessoa trabalhando no computador durante o desenvolvimento de um site"
+        width="1000"
+        height="667"
+        loading="lazy"
+        decoding="async"
         class="rounded-2xl shadow-2xl w-full"
       />
       <div>
@@ -152,9 +155,14 @@
         <p class="mb-4 text-gray-700 leading-relaxed">
           Sou o Dieferson, desenvolvedor especializado em criar presença digital para pequenos negócios. Ajudo empreendedores a terem um site profissional sem precisar entender nada de tecnologia.
         </p>
-        <p class="text-gray-700 leading-relaxed">
+        <p class="mb-6 text-gray-700 leading-relaxed">
           Trabalho com sites e landing pages focadas em resultado: mais clientes pelo WhatsApp, mais contatos pelo formulário e mais profissionalismo pra quem visita seu negócio.
         </p>
+        <ul class="space-y-2 text-gray-700">
+          <li><strong class="text-brand-800">Atendimento:</strong> 100% online, para todo o Brasil (base em Porto Alegre/RS)</li>
+          <li><strong class="text-brand-800">Horário:</strong> segunda a sábado, das 9h às 20h</li>
+          <li><strong class="text-brand-800">Resposta:</strong> no mesmo dia útil, normalmente em poucas horas</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -234,8 +242,12 @@
         <!-- Projeto 1: Barbearia -->
         <div class="bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition card-hover">
           <img
-            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop"
-            alt="Site de barbearia"
+            src="/img/barbearia.webp"
+            alt="Modelo de site para barbearia"
+            width="800"
+            height="531"
+            loading="lazy"
+            decoding="async"
             class="w-full h-48 object-cover"
           />
           <div class="p-5">
@@ -256,8 +268,12 @@
         <!-- Projeto 2: Salão de beleza -->
         <div class="bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition card-hover">
           <img
-            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop"
-            alt="Site de salão de beleza"
+            src="/img/salao.webp"
+            alt="Modelo de site para salão de beleza"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
             class="w-full h-48 object-cover"
           />
           <div class="p-5">
@@ -278,8 +294,12 @@
         <!-- Projeto 3: Restaurante -->
         <div class="bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition card-hover">
           <img
-            src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?q=80&w=800&auto=format&fit=crop"
-            alt="Cardápio digital restaurante"
+            src="/img/restaurante.webp"
+            alt="Modelo de cardápio digital para restaurante"
+            width="800"
+            height="1102"
+            loading="lazy"
+            decoding="async"
             class="w-full h-48 object-cover"
           />
           <div class="p-5">
@@ -297,6 +317,90 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos" class="py-20 px-4 bg-brand-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-4 text-brand-800">Planos e preços</h2>
+      <p class="text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+        Preços transparentes, sem mensalidade obrigatória. O valor final pode variar conforme o tamanho do projeto — o orçamento é gratuito.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 items-start">
+        <div class="bg-white border rounded-2xl p-6 card-hover h-full">
+          <h3 class="text-xl font-bold text-brand-800 mb-1">Essencial</h3>
+          <p class="text-sm text-gray-600 mb-4">Para quem precisa existir no Google e no WhatsApp.</p>
+          <p class="text-3xl font-extrabold text-brand-800 mb-1">R$250</p>
+          <p class="text-sm text-gray-600 mb-6">pagamento único</p>
+          <ul class="space-y-2 text-gray-700 text-sm mb-6">
+            <li>✓ Landing page de uma página</li>
+            <li>✓ Botão e links para WhatsApp</li>
+            <li>✓ Layout adaptado para celular</li>
+            <li>✓ Endereço gratuito (.vercel.app)</li>
+            <li>✓ Entrega em até 7 dias</li>
+            <li>✓ 1 rodada de ajustes</li>
+          </ul>
+          <a
+            href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Essencial%20da%20DKF%20Consultoria."
+            target="_blank"
+            rel="noopener"
+            class="block text-center bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 rounded-lg font-semibold btn-primary"
+          >
+            Quero o Essencial
+          </a>
+        </div>
+
+        <div class="bg-white border-2 border-brand-600 rounded-2xl p-6 card-hover h-full relative shadow-lg">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full">Mais escolhido</span>
+          <h3 class="text-xl font-bold text-brand-800 mb-1">Profissional</h3>
+          <p class="text-sm text-gray-600 mb-4">Site completo para vender e passar credibilidade.</p>
+          <p class="text-3xl font-extrabold text-brand-800 mb-1">R$550</p>
+          <p class="text-sm text-gray-600 mb-6">pagamento único</p>
+          <ul class="space-y-2 text-gray-700 text-sm mb-6">
+            <li>✓ Tudo do Essencial</li>
+            <li>✓ Até 5 seções (serviços, galeria, depoimentos…)</li>
+            <li>✓ Formulário de contato por e-mail</li>
+            <li>✓ SEO básico e compartilhamento no WhatsApp</li>
+            <li>✓ Perfil no Google Meu Negócio</li>
+            <li>✓ 2 rodadas de ajustes</li>
+          </ul>
+          <a
+            href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Profissional%20da%20DKF%20Consultoria."
+            target="_blank"
+            rel="noopener"
+            class="block text-center bg-brand-600 hover:bg-brand-700 text-white px-4 py-3 rounded-lg font-semibold btn-primary"
+          >
+            Quero o Profissional
+          </a>
+        </div>
+
+        <div class="bg-white border rounded-2xl p-6 card-hover h-full">
+          <h3 class="text-xl font-bold text-brand-800 mb-1">Manutenção</h3>
+          <p class="text-sm text-gray-600 mb-4">Para manter o site sempre atualizado sem dor de cabeça.</p>
+          <p class="text-3xl font-extrabold text-brand-800 mb-1">R$97</p>
+          <p class="text-sm text-gray-600 mb-6">por mês, cancela quando quiser</p>
+          <ul class="space-y-2 text-gray-700 text-sm mb-6">
+            <li>✓ Alterações de textos, fotos e preços</li>
+            <li>✓ Acompanhamento do site no ar</li>
+            <li>✓ Pequenos ajustes e correções</li>
+            <li>✓ Suporte por WhatsApp</li>
+          </ul>
+          <a
+            href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20de%20Manuten%C3%A7%C3%A3o%20da%20DKF%20Consultoria."
+            target="_blank"
+            rel="noopener"
+            class="block text-center bg-white border-2 border-brand-600 text-brand-700 hover:bg-brand-50 px-4 py-3 rounded-lg font-semibold btn-primary"
+          >
+            Quero manutenção
+          </a>
+        </div>
+      </div>
+
+      <p class="text-center text-gray-700 mt-10 text-sm">
+        Aplicativos simples, automações e projetos maiores têm orçamento sob medida — me chama no WhatsApp que eu te passo o valor.
+      </p>
     </div>
   </section>
 
@@ -387,9 +491,46 @@
           </p>
         </div>
       </div>
-      <p class="text-center text-gray-600 mt-10 font-medium">
+      <p class="text-center text-gray-700 mt-10 font-medium">
         Prazo médio: de 3 a 7 dias, dependendo do projeto.
       </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-4 text-brand-800">Dúvidas frequentes</h2>
+      <p class="text-center text-gray-700 mb-10">
+        As perguntas que mais recebo antes de começar um projeto.
+      </p>
+
+      <div class="space-y-4">
+        <details class="bg-white border rounded-xl p-5">
+          <summary class="font-bold text-brand-800 cursor-pointer">Em quanto tempo meu site fica pronto?</summary>
+          <p class="mt-3 text-gray-700">Entre 3 e 7 dias a partir do momento em que você me envia os materiais. Projetos maiores (apps e automações) têm prazo combinado antes de começar.</p>
+        </details>
+
+        <details class="bg-white border rounded-xl p-5">
+          <summary class="font-bold text-brand-800 cursor-pointer">O que eu preciso enviar?</summary>
+          <p class="mt-3 text-gray-700">Nome do negócio, logo (se tiver), fotos, lista de serviços e preços, endereço, horários e o número de WhatsApp. Se você não tiver textos prontos, eu escrevo com base no que a gente conversar.</p>
+        </details>
+
+        <details class="bg-white border rounded-xl p-5">
+          <summary class="font-bold text-brand-800 cursor-pointer">Como funciona o pagamento?</summary>
+          <p class="mt-3 text-gray-700">Metade no início e metade na entrega, via Pix. No plano de manutenção a cobrança é mensal e você pode cancelar quando quiser.</p>
+        </details>
+
+        <details class="bg-white border rounded-xl p-5">
+          <summary class="font-bold text-brand-800 cursor-pointer">Preciso pagar hospedagem ou domínio?</summary>
+          <p class="mt-3 text-gray-700">Não é obrigatório: o site pode ficar no ar com um endereço gratuito. Se você quiser um domínio próprio (ex.: seunegocio.com.br), eu configuro — você paga só a taxa anual do registro.</p>
+        </details>
+
+        <details class="bg-white border rounded-xl p-5">
+          <summary class="font-bold text-brand-800 cursor-pointer">Depois de pronto, quem faz as alterações?</summary>
+          <p class="mt-3 text-gray-700">Você pode contratar o plano de manutenção e pedir as mudanças pelo WhatsApp, ou pedir ajustes avulsos quando precisar.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -413,6 +554,9 @@
             mouradieferson4@gmail.com
           </a>
         </p>
+        <p class="mb-6 text-gray-700 text-sm">
+          Atendimento de segunda a sábado, das 9h às 20h · Resposta no mesmo dia útil · 100% online, para todo o Brasil.
+        </p>
         <a
           href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20para%20meu%20neg%C3%B3cio."
           target="_blank"
@@ -435,28 +579,33 @@
           class="space-y-4 bg-gray-50 border rounded-2xl p-6"
         >
           <div>
-            <label class="block mb-1 text-sm font-semibold text-gray-700">Nome</label>
+            <label for="nome" class="block mb-1 text-sm font-semibold text-gray-700">Nome</label>
             <input
+              id="nome"
               type="text"
               name="nome"
+              autocomplete="name"
               required
               class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
               placeholder="Seu nome"
             />
           </div>
           <div>
-            <label class="block mb-1 text-sm font-semibold text-gray-700">WhatsApp</label>
+            <label for="whatsapp" class="block mb-1 text-sm font-semibold text-gray-700">WhatsApp</label>
             <input
+              id="whatsapp"
               type="tel"
               name="whatsapp"
+              autocomplete="tel"
               required
               class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
               placeholder="(51) 99999-9999"
             />
           </div>
           <div>
-            <label class="block mb-1 text-sm font-semibold text-gray-700">Tipo de negócio</label>
+            <label for="negocio" class="block mb-1 text-sm font-semibold text-gray-700">Tipo de negócio</label>
             <input
+              id="negocio"
               type="text"
               name="negocio"
               class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
@@ -464,8 +613,9 @@
             />
           </div>
           <div>
-            <label class="block mb-1 text-sm font-semibold text-gray-700">Mensagem</label>
+            <label for="mensagem" class="block mb-1 text-sm font-semibold text-gray-700">Mensagem</label>
             <textarea
+              id="mensagem"
               name="mensagem"
               rows="4"
               class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
@@ -495,16 +645,32 @@
         <a href="#sobre" class="hover:text-white transition">Sobre</a>
         <a href="#servicos" class="hover:text-white transition">Serviços</a>
         <a href="#projetos" class="hover:text-white transition">Projetos</a>
-        <a href="#depoimentos" class="hover:text-white transition">Depoimentos</a>
+        <a href="#planos" class="hover:text-white transition">Planos</a>
         <a href="#como-funciona" class="hover:text-white transition">Como funciona</a>
+        <a href="#faq" class="hover:text-white transition">Dúvidas</a>
         <a href="#contato" class="hover:text-white transition">Contato</a>
       </div>
-      <div class="text-sm text-gray-400">
-        © 2025 DKF Consultoria – Todos os direitos reservados
+      <div class="text-sm text-gray-300">
+        © <span id="ano">2025</span> DKF Consultoria – Todos os direitos reservados
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Botão flutuante do WhatsApp -->
+  <a
+    href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20um%20or%C3%A7amento."
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar com a DKF Consultoria no WhatsApp"
+    class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white pl-4 pr-5 py-3 rounded-full shadow-2xl font-semibold btn-whatsapp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
+    </svg>
+    <span class="hidden sm:inline">WhatsApp</span>
+  </a>
+
+  <script src="/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
