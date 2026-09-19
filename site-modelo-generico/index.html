@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DKF Consultoria – Soluções Digitais para seu Negócio</title>
+  <meta name="description" content="DKF Consultoria – Sites e landing pages profissionais para pequenos negócios. Mais clientes pelo WhatsApp, presença digital em poucos dias. Orçamento gratuito e sem compromisso." />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .hero-bg {
+      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    .btn-primary {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+    }
+    .btn-whatsapp {
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+    }
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="text-xl font-extrabold tracking-tight text-brand-800">DKF CONSULTORIA</div>
+
+      <!-- Menu desktop -->
+      <nav class="hidden md:flex gap-6">
+        <a href="#inicio" class="hover:text-brand-600 font-medium">Início</a>
+        <a href="#sobre" class="hover:text-brand-600 font-medium">Sobre</a>
+        <a href="#servicos" class="hover:text-brand-600 font-medium">Serviços</a>
+        <a href="#projetos" class="hover:text-brand-600 font-medium">Projetos</a>
+        <a href="#depoimentos" class="hover:text-brand-600 font-medium">Depoimentos</a>
+        <a href="#como-funciona" class="hover:text-brand-600 font-medium">Como funciona</a>
+        <a href="#contato" class="hover:text-brand-600 font-medium">Contato</a>
+      </nav>
+
+      <a
+        href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20saber%20mais%20sobre%20solu%C3%A7%C3%B5es%20digitais."
+        target="_blank"
+        class="hidden md:inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-medium btn-whatsapp"
+      >
+        <span>WhatsApp</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
+        </svg>
+      </a>
+
+      <!-- Botão menu mobile -->
+      <button id="menuBtn" class="md:hidden text-2xl text-gray-700">☰</button>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="menuMobile" class="md:hidden hidden bg-white border-t">
+      <nav class="flex flex-col p-4 gap-3">
+        <a href="#inicio" class="mobile-link font-medium">Início</a>
+        <a href="#sobre" class="mobile-link font-medium">Sobre</a>
+        <a href="#servicos" class="mobile-link font-medium">Serviços</a>
+        <a href="#projetos" class="mobile-link font-medium">Projetos</a>
+        <a href="#depoimentos" class="mobile-link font-medium">Depoimentos</a>
+        <a href="#como-funciona" class="mobile-link font-medium">Como funciona</a>
+        <a href="#contato" class="mobile-link font-medium">Contato</a>
+        <a
+          href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20saber%20mais%20sobre%20solu%C3%A7%C3%B5es%20digitais."
+          target="_blank"
+          class="bg-green-500 hover:bg-green-600 text-white text-center px-4 py-2 rounded font-medium"
+        >
+          Chamar no WhatsApp
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero-bg min-h-screen flex items-center justify-center text-center text-white px-4">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
+        DKF Consultoria – Soluções digitais para alavancar seu negócio
+      </h1>
+      <p class="text-lg md:text-xl mb-8 text-gray-100">
+        Sites e landing pages profissionais para pequenos negócios. Mais clientes pelo WhatsApp, entrega rápida e preço acessível.
+      </p>
+      <a
+        href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20um%20projeto%20para%20meu%20neg%C3%B3cio."
+        target="_blank"
+        class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-lg text-lg font-semibold btn-primary"
+      >
+        Quero um projeto
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+      <p class="mt-5 text-sm text-gray-300">A partir de R$250 · Entrega em até 7 dias · Orçamento gratuito</p>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="py-20 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <img
+        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop"
+        alt="Pessoa trabalhando no computador"
+        class="rounded-2xl shadow-2xl w-full"
+      />
+      <div>
+        <h2 class="text-3xl font-extrabold mb-4 text-brand-800">Sobre a DKF Consultoria</h2>
+        <p class="mb-4 text-gray-700 leading-relaxed">
+          Sou o Dieferson, desenvolvedor especializado em criar presença digital para pequenos negócios. Ajudo empreendedores a terem um site profissional sem precisar entender nada de tecnologia.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Trabalho com sites e landing pages focadas em resultado: mais clientes pelo WhatsApp, mais contatos pelo formulário e mais profissionalismo pra quem visita seu negócio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-4 text-brand-800">O que a DKF Consultoria faz</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Do site simples ao projeto mais completo, a gente cria a solução digital ideal para o seu negócio.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Serviço 1 -->
+        <div class="border-2 border-brand-500 rounded-xl p-6 hover:shadow-xl transition card-hover bg-blue-50 relative">
+          <span class="absolute top-3 right-3 bg-brand-600 text-white text-xs font-bold px-2 py-1 rounded-full">⭐ Mais solicitado</span>
+          <div class="text-3xl mb-3">🌐</div>
+          <h3 class="text-xl font-bold mb-2 text-brand-800">Sites e landing pages</h3>
+          <p class="text-gray-600">
+            Páginas profissionais, rápidas e focadas em converter visitantes em clientes no WhatsApp ou e-mail.
+          </p>
+        </div>
+        <!-- Serviço 2 -->
+        <div class="border rounded-xl p-6 hover:shadow-xl transition card-hover bg-gray-50">
+          <div class="text-3xl mb-3">📱</div>
+          <h3 class="text-xl font-bold mb-2 text-brand-800">Aplicativos simples</h3>
+          <p class="text-gray-600">
+            Aplicativos web e mobile para facilitar agendamentos, pedidos e outras rotinas do seu negócio.
+          </p>
+        </div>
+        <!-- Serviço 3 -->
+        <div class="border rounded-xl p-6 hover:shadow-xl transition card-hover bg-gray-50">
+          <div class="text-3xl mb-3">🤖</div>
+          <h3 class="text-xl font-bold mb-2 text-brand-800">Automações</h3>
+          <p class="text-gray-600">
+            Integrações e automações para reduzir trabalho manual e organizar processos (planilhas, WhatsApp, e-mail, etc.).
+          </p>
+        </div>
+        <!-- Serviço 4 -->
+        <div class="border rounded-xl p-6 hover:shadow-xl transition card-hover bg-gray-50">
+          <div class="text-3xl mb-3">💬</div>
+          <h3 class="text-xl font-bold mb-2 text-brand-800">Integração com WhatsApp</h3>
+          <p class="text-gray-600">
+            Botões, links e fluxos que levam o cliente direto para o seu WhatsApp e facilitam o contato.
+          </p>
+        </div>
+        <!-- Serviço 5 -->
+        <div class="border rounded-xl p-6 hover:shadow-xl transition card-hover bg-gray-50">
+          <div class="text-3xl mb-3">🗺️</div>
+          <h3 class="text-xl font-bold mb-2 text-brand-800">Google Meu Negócio</h3>
+          <p class="text-gray-600">
+            Criação e otimização do perfil no Google Maps: fotos, horários, categorias, respostas a avaliações e mais visibilidade na busca local.
+          </p>
+        </div>
+
+        <!-- Serviço 6 -->
+        <div class="border rounded-xl p-6 hover:shadow-xl transition card-hover bg-gray-50">
+          <div class="text-3xl mb-3">📲</div>
+          <h3 class="text-xl font-bold mb-2 text-brand-800">Redes Sociais</h3>
+          <p class="text-gray-600">
+            Criação ou melhoria de perfis no Instagram e Facebook: bio profissional, destaques, layout de feed e orientações de postagem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-4 text-brand-800">Veja nosso trabalho</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Alguns exemplos de projetos e modelos para diferentes tipos de negócio.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Projeto 1: Barbearia -->
+        <div class="bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition card-hover">
+          <img
+            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop"
+            alt="Site de barbearia"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-xl font-bold mb-2 text-brand-800">Barbearia</h3>
+            <p class="text-gray-600 mb-4">
+              Site com serviços, preços, galeria de fotos e botão direto para WhatsApp.
+            </p>
+            <a
+              href="https://www.barbeariahermanos.com.br/unidades/tatuape/index.html"
+              target="_blank"
+              class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded font-medium text-sm"
+            >
+              Ver site
+            </a>
+          </div>
+        </div>
+
+        <!-- Projeto 2: Salão de beleza -->
+        <div class="bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition card-hover">
+          <img
+            src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop"
+            alt="Site de salão de beleza"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-xl font-bold mb-2 text-brand-800">Salão de Beleza</h3>
+            <p class="text-gray-600 mb-4">
+              Landing page com apresentação dos serviços, valores, antes e depois e formulário de contato.
+            </p>
+            <a
+              href="https://esteticasuperbonita.com.br"
+              target="_blank"
+              class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded font-medium text-sm"
+            >
+              Ver site
+            </a>
+          </div>
+        </div>
+
+        <!-- Projeto 3: Restaurante -->
+        <div class="bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition card-hover">
+          <img
+            src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?q=80&w=800&auto=format&fit=crop"
+            alt="Cardápio digital restaurante"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-5">
+            <h3 class="text-xl font-bold mb-2 text-brand-800">Restaurante / Lanchonete</h3>
+            <p class="text-gray-600 mb-4">
+              Cardápio digital com pedidos pelo WhatsApp, categorias e fotos dos pratos.
+            </p>
+            <a
+              href="https://www.whatsmenu.com.br/paradahotdog"
+              target="_blank"
+              class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded font-medium text-sm"
+            >
+              Ver site
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-4 text-brand-800">O que os clientes dizem</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Depoimentos de quem já contratou um projeto com a DKF Consultoria.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Depoimento 1 -->
+        <div class="bg-gray-50 border rounded-2xl p-6 card-hover">
+          <div class="flex items-center gap-1 mb-3 text-yellow-500">
+            <!-- 5 estrelas -->
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            “Fiz meu site da barbearia com a DKF Consultoria e o resultado foi incrível. Meus clientes agora me acham fácil pelo Google e o WhatsApp não para de tocar.”
+          </p>
+          <p class="font-bold text-brand-800">João Pedro</p>
+          <p class="text-sm text-gray-600">Barbearia – Site + WhatsApp</p>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="bg-gray-50 border rounded-2xl p-6 card-hover">
+          <div class="flex items-center gap-1 mb-3 text-yellow-500">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            “Criei uma landing page para meu salão e a diferença foi enorme. Mais agendamentos, menos mensagens perdidas e muito mais profissionalismo.”
+          </p>
+          <p class="font-bold text-brand-800">Camila Souza</p>
+          <p class="text-sm text-gray-600">Salão de beleza – Landing page</p>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="bg-gray-50 border rounded-2xl p-6 card-hover">
+          <div class="flex items-center gap-1 mb-3 text-yellow-500">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            “Desenvolvi um app simples para meus alunos agendarem aulas. Ficou muito bom e me ajudou a organizar toda a agenda.”
+          </p>
+          <p class="font-bold text-brand-800">Rafael Mendes</p>
+          <p class="text-sm text-gray-600">Personal trainer – Aplicativo web</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="py-20 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-4 text-brand-800">Como funciona</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        Um processo simples e direto, do primeiro contato até o projeto no ar.
+      </p>
+
+      <div class="grid md:grid-cols-4 gap-6 text-center">
+        <div class="p-4">
+          <div class="text-4xl mb-3">1️⃣</div>
+          <h3 class="font-bold mb-2 text-brand-800">Você me conta sobre seu negócio</h3>
+          <p class="text-gray-600 text-sm">
+            Me explica o que você faz, quem é seu cliente e o que quer com o projeto.
+          </p>
+        </div>
+        <div class="p-4">
+          <div class="text-4xl mb-3">2️⃣</div>
+          <h3 class="font-bold mb-2 text-brand-800">Eu crio uma solução sob medida</h3>
+          <p class="text-gray-600 text-sm">
+            Desenvolvo site, landing page, app ou automação com base no que conversamos.
+          </p>
+        </div>
+        <div class="p-4">
+          <div class="text-4xl mb-3">3️⃣</div>
+          <h3 class="font-bold mb-2 text-brand-800">Você aprova e ajusta</h3>
+          <p class="text-gray-600 text-sm">
+            Você vê o projeto, pede mudanças e eu ajusto até ficar do seu jeito.
+          </p>
+        </div>
+        <div class="p-4">
+          <div class="text-4xl mb-3">4️⃣</div>
+          <h3 class="font-bold mb-2 text-brand-800">Publico e entrego tudo pronto</h3>
+          <p class="text-gray-600 text-sm">
+            Coloco no ar, com link profissional, e te entrego tudo configurado.
+          </p>
+        </div>
+      </div>
+      <p class="text-center text-gray-600 mt-10 font-medium">
+        Prazo médio: de 3 a 7 dias, dependendo do projeto.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="py-20 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-3xl font-extrabold mb-4 text-brand-800">Vamos conversar?</h2>
+        <p class="mb-6 text-gray-700 leading-relaxed">
+          Se você quer um site, landing page, aplicativo ou automação para seu negócio, me chama. Vou entender sua necessidade e te explicar como posso te ajudar.
+        </p>
+        <p class="mb-4 text-gray-800">
+          <strong class="text-brand-800">WhatsApp:</strong><br />
+          <a href="https://wa.me/5551999027441" target="_blank" class="text-brand-600 hover:underline font-medium">
+            (51) 99902-7441
+          </a>
+        </p>
+        <p class="mb-6 text-gray-800">
+          <strong class="text-brand-800">E-mail:</strong><br />
+          <a href="mailto:mouradieferson4@gmail.com" class="text-brand-600 hover:underline font-medium">
+            mouradieferson4@gmail.com
+          </a>
+        </p>
+        <a
+          href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF%20Consultoria%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto%20para%20meu%20neg%C3%B3cio."
+          target="_blank"
+          class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold btn-whatsapp"
+        >
+          Chamar no WhatsApp
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Formulário -->
+      <div>
+        <h3 class="text-2xl font-extrabold mb-6 text-brand-800">Envie uma mensagem</h3>
+
+        <form
+          action="https://formspree.io/f/xljddanr"
+          method="POST"
+          class="space-y-4 bg-gray-50 border rounded-2xl p-6"
+        >
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">Nome</label>
+            <input
+              type="text"
+              name="nome"
+              required
+              class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
+              placeholder="Seu nome"
+            />
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">WhatsApp</label>
+            <input
+              type="tel"
+              name="whatsapp"
+              required
+              class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
+              placeholder="(51) 99999-9999"
+            />
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">Tipo de negócio</label>
+            <input
+              type="text"
+              name="negocio"
+              class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
+              placeholder="Ex.: barbearia, salão, loja, consultório..."
+            />
+          </div>
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-gray-700">Mensagem</label>
+            <textarea
+              name="mensagem"
+              rows="4"
+              class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"
+              placeholder="Me conta um pouco sobre seu negócio e o que você precisa"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-lg font-semibold btn-primary"
+          >
+            Enviar mensagem
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-300 py-10 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <p class="font-extrabold text-white text-lg">DKF CONSULTORIA</p>
+        <p class="text-sm text-gray-400">Soluções digitais para negócios.</p>
+      </div>
+      <div class="flex gap-4 text-sm">
+        <a href="#inicio" class="hover:text-white transition">Início</a>
+        <a href="#sobre" class="hover:text-white transition">Sobre</a>
+        <a href="#servicos" class="hover:text-white transition">Serviços</a>
+        <a href="#projetos" class="hover:text-white transition">Projetos</a>
+        <a href="#depoimentos" class="hover:text-white transition">Depoimentos</a>
+        <a href="#como-funciona" class="hover:text-white transition">Como funciona</a>
+        <a href="#contato" class="hover:text-white transition">Contato</a>
+      </div>
+      <div class="text-sm text-gray-400">
+        © 2025 DKF Consultoria – Todos os direitos reservados
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
