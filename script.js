@@ -36,7 +36,7 @@ if ('IntersectionObserver' in window) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.14 });
+  }, { threshold: 0.08, rootMargin: '0px 0px 12% 0px' });
 
   revealItems.forEach((item) => observer.observe(item));
 } else {
