@@ -1,6 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0f172a"/>
-  <rect x="13" y="13" width="38" height="38" rx="10" fill="none" stroke="#25c7d9" stroke-width="4"/>
-  <path d="M20 43 44 19" fill="none" stroke="#1e6fff" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="25" cy="25" r="7" fill="none" stroke="#1fbf75" stroke-width="4"/>
+  <!-- Canonical DKF brand mark. Reuse this file for header, footer, and favicon. -->
+  <title>DKF Consultoria Digital</title>
+  <defs>
+    <linearGradient id="dkf-bg" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#061225"/>
+      <stop offset="1" stop-color="#123a63"/>
+    </linearGradient>
+    <linearGradient id="dkf-line" x1="15" y1="16" x2="50" y2="47" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#25c7d9"/>
+      <stop offset="1" stop-color="#1e6fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#dkf-bg)"/>
+  <path d="M21 17h10.5C42 17 49 23 49 32s-7 15-17.5 15H21z" fill="none" stroke="url(#dkf-line)" stroke-width="5.5" stroke-linejoin="round"/>
+  <path d="M21 18v28" fill="none" stroke="#25c7d9" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M32 32 46 18" fill="none" stroke="#f8fbff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M32 32 47 46" fill="none" stroke="#1fbf75" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="22" cy="18" r="2.6" fill="#1fbf75"/>
 </svg>
