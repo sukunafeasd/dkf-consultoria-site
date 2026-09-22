@@ -27,6 +27,8 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 const revealItems = document.querySelectorAll('.reveal');
+const serviceSelectLinks = document.querySelectorAll('.service-select');
+const serviceSelectInput = document.getElementById('selectServico');
 
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
@@ -42,3 +44,11 @@ if ('IntersectionObserver' in window) {
 } else {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
+
+serviceSelectLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    if (serviceSelectInput) {
+      serviceSelectInput.value = link.dataset.service || '';
+    }
+  });
+});

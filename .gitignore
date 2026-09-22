@@ -1,0 +1,6 @@
+.tmp-audit/
+node_modules/
+.env
+.env.*
+*.log
+dist/

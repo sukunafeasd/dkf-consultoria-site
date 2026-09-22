@@ -1263,36 +1263,24 @@ h3 {
   margin-top: 2px;
 }
 
+.form-note {
+  margin: -2px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .service-body {
   background:
     radial-gradient(circle at 12% 4%, rgba(37, 199, 217, 0.1), transparent 24%),
     var(--bg);
-}
-
-.success-banner {
-  position: sticky;
-  top: 0;
-  z-index: 70;
-  color: #fff;
-  background: #159b62;
-}
-
-.success-inner {
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-
-.success-inner strong,
-.success-inner span {
-  display: block;
-}
-
-.success-inner span {
-  color: #d9ffec;
-  font-size: 0.92rem;
 }
 
 .service-hero {
@@ -1622,6 +1610,70 @@ h3 {
   gap: 16px;
 }
 
+.utility-page {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: 118px 0 70px;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(37, 199, 217, 0.14), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(30, 111, 255, 0.14), transparent 30%),
+    linear-gradient(135deg, #050a12 0%, #08111f 58%, #0b1c31 100%);
+}
+
+.utility-card {
+  width: min(760px, 100%);
+  padding: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(37, 199, 217, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.04));
+  box-shadow: var(--shadow);
+}
+
+.utility-card h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.utility-card p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 1.03rem;
+}
+
+.utility-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.utility-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 22px 0 0;
+  color: #d7e5f7;
+  list-style: none;
+}
+
+.utility-list li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.utility-list li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--green);
+}
+
 .site-footer {
   padding: 42px 0;
   color: #c5d1df;
@@ -1947,14 +1999,21 @@ h3 {
     aspect-ratio: 16 / 11;
   }
 
-  .success-inner {
-    align-items: stretch;
-    flex-direction: column;
-    padding: 14px 0;
-  }
-
   .service-card {
     min-height: auto;
     padding: 20px;
+  }
+
+  .utility-page {
+    padding-top: 94px;
+  }
+
+  .utility-card {
+    padding: 22px;
+  }
+
+  .utility-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
