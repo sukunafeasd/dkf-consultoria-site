@@ -26,6 +26,13 @@ for (const file of htmlFiles) {
     if (!/rel="[^"]*noopener[^"]*"/.test(match[1])) fail(file, 'link externo sem noopener');
   }
 
+  for (const match of html.matchAll(/<a\b([^>]*)aria-label="([^"]+)"([^>]*)>([^<]+)<\/a>/g)) {
+    const visibleText = match[4].trim().toLowerCase();
+    if (visibleText && !match[2].toLowerCase().includes(visibleText)) {
+      fail(file, `nome acessível não contém o texto visível: ${visibleText}`);
+    }
+  }
+
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const value = match[1];
     if (/^(?:https?:|mailto:|tel:|#|\/\/)/.test(value)) continue;
@@ -49,6 +56,25 @@ for (const file of htmlFiles) {
       fail(file, `pattern de telefone inválido: ${error.message}`);
     }
   }
+}
+
+const home = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+if (/avaliaç(?:ão|ões) demonstrativa|exemplo de cliente/i.test(home)) {
+  fail('index.html', 'contém avaliação simulada');
+}
+
+const store = readFileSync(new URL('../servicos.html', import.meta.url), 'utf8');
+if (/Planner Digital 2025|Reels e Stories 2025|TikTok do Zero ao Viral 2025/.test(store)) {
+  fail('servicos.html', 'contém produto datado retirado da vitrine');
+}
+if (store.includes('https://pay.kiwify.com.br/ipSMY6X')) {
+  fail('servicos.html', 'expõe checkout genérico antes da confirmação do escopo');
+}
+const productCards = [...store.matchAll(/<article class="digital-card[^>]+itemscope itemtype="https:\/\/schema.org\/Product"/g)];
+if (productCards.length !== 10) fail('servicos.html', `esperados 10 produtos estruturados; encontrados ${productCards.length}`);
+
+for (const requiredFile of ['site.webmanifest', 'apple-touch-icon.png', 'favicon-192.png', 'favicon-512.png']) {
+  if (!existsSync(new URL(`../${requiredFile}`, import.meta.url))) fail(requiredFile, 'arquivo obrigatório ausente');
 }
 
 try {

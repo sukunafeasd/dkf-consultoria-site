@@ -1,3 +1,4 @@
+document.documentElement.classList.remove('no-js');
 document.documentElement.classList.add('js');
 
 const header = document.querySelector('[data-header]');
@@ -40,6 +41,20 @@ mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
     closeMenu({ restoreFocus: true });
+    return;
+  }
+  if (event.key !== 'Tab' || menuButton?.getAttribute('aria-expanded') !== 'true' || !mobileMenu) return;
+  const focusable = [...mobileMenu.querySelectorAll('a[href], button:not([disabled])')]
+    .filter((item) => !item.hidden && item.getClientRects().length);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
   }
 });
 
@@ -69,6 +84,13 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
     });
   }, { threshold: 0.08, rootMargin: '0px 0px 12% 0px' });
   revealItems.forEach((item) => observer.observe(item));
+  window.setTimeout(() => {
+    revealItems.forEach((item) => {
+      item.classList.remove('reveal-pending');
+      item.classList.add('is-visible');
+      observer.unobserve(item);
+    });
+  }, 1800);
 } else {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
@@ -88,7 +110,8 @@ const storeSearch = document.querySelector('[data-store-search]');
 const filterButtons = document.querySelectorAll('[data-store-filter]');
 const productCards = document.querySelectorAll('[data-product-card]');
 const resultsStatus = document.querySelector('[data-results-status]');
-let activeFilter = 'todos';
+const storeParams = new URLSearchParams(window.location.search);
+let activeFilter = storeParams.get('categoria') || 'todos';
 
 const normalize = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const updateProducts = () => {
@@ -102,7 +125,20 @@ const updateProducts = () => {
     if (!card.hidden) visible += 1;
   });
   if (resultsStatus) resultsStatus.textContent = `${visible} ${visible === 1 ? 'produto encontrado' : 'produtos encontrados'}`;
+  if (storeSearch || filterButtons.length) {
+    const nextParams = new URLSearchParams(window.location.search);
+    if (query) nextParams.set('busca', storeSearch.value.trim());
+    else nextParams.delete('busca');
+    if (activeFilter !== 'todos') nextParams.set('categoria', activeFilter);
+    else nextParams.delete('categoria');
+    const nextUrl = `${window.location.pathname}${nextParams.size ? `?${nextParams}` : ''}${window.location.hash}`;
+    window.history.replaceState(null, '', nextUrl);
+  }
 };
+
+if (storeSearch) storeSearch.value = storeParams.get('busca') || '';
+if (![...filterButtons].some((button) => button.dataset.storeFilter === activeFilter)) activeFilter = 'todos';
+filterButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.storeFilter === activeFilter)));
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -114,35 +150,39 @@ filterButtons.forEach((button) => {
 storeSearch?.addEventListener('input', updateProducts);
 updateProducts();
 
+const resetSubmitButtons = () => {
+  document.querySelectorAll('form button[type="submit"]').forEach((button) => {
+    button.disabled = false;
+    button.textContent = button.dataset.defaultText || button.textContent;
+    button.removeAttribute('aria-busy');
+  });
+};
+
 document.querySelectorAll('form').forEach((form) => {
+  const button = form.querySelector('button[type="submit"]');
+  if (button) button.dataset.defaultText = button.textContent;
   form.addEventListener('submit', () => {
-    const button = form.querySelector('button[type="submit"]');
     if (!button || button.disabled) return;
+    trackEvent('form_submit', form.id || form.querySelector('[name="_subject"]')?.value || 'formulario');
     button.disabled = true;
     button.textContent = 'Enviando...';
     button.setAttribute('aria-busy', 'true');
   });
 });
+window.addEventListener('pageshow', resetSubmitButtons);
 
 document.querySelectorAll('[data-current-year]').forEach((item) => {
   item.textContent = String(new Date().getFullYear());
 });
 
-document.addEventListener('click', (event) => {
-  const link = event.target.closest('a');
-  if (!link) return;
-
-  let eventName = '';
-  if (link.href.includes('pay.kiwify.com.br')) eventName = 'kiwify_checkout';
-  if (link.href.includes('wa.me/')) eventName = 'whatsapp_click';
-  if (link.origin === window.location.origin && link.pathname === '/servicos') eventName = 'store_open';
-  if (!eventName) return;
-
-  const product = link.closest('[data-product-card]')?.querySelector('h3')?.textContent.trim() || '';
+const trackEvent = (eventName, product = '') => {
+  const params = new URLSearchParams(window.location.search);
   const payload = JSON.stringify({
     event: eventName,
     page: window.location.pathname,
-    product: product.slice(0, 100)
+    product: product.slice(0, 100),
+    source: (params.get('utm_source') || document.referrer || 'direto').slice(0, 120),
+    campaign: (params.get('utm_campaign') || '').slice(0, 80)
   });
 
   if (navigator.sendBeacon) {
@@ -150,4 +190,26 @@ document.addEventListener('click', (event) => {
   } else {
     fetch('/api/event', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true });
   }
+};
+
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  let eventName = '';
+  if (link.href.includes('pay.kiwify.com.br')) eventName = 'kiwify_checkout';
+  else if (link.href.includes('wa.me/')) eventName = 'whatsapp_click';
+  else if (link.href.includes('instagram.com') || link.href.includes('tiktok.com')) eventName = 'social_click';
+  else if (link.origin === window.location.origin && link.pathname === '/servicos') eventName = 'store_open';
+  if (!eventName) return;
+
+  const product = link.closest('[data-product-card]')?.querySelector('h3')?.textContent.trim()
+    || link.getAttribute('aria-label')
+    || link.textContent.trim();
+  trackEvent(eventName, product);
 });
+
+if (window.location.pathname === '/obrigado' && !sessionStorage.getItem('dkf_lead_success')) {
+  sessionStorage.setItem('dkf_lead_success', '1');
+  trackEvent('lead_success', 'formulario');
+}

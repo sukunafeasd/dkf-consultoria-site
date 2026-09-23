@@ -16,6 +16,7 @@ Site institucional e loja da DKF Consultoria Digital, publicados na Vercel.
 - `script.js`: menu mobile, header com scroll, animações de entrada e seleção do briefing.
 - `assets/site/`: imagens do site e previews sociais.
 - `assets/products/`: capas dos produtos da loja.
+- `site.webmanifest` e ícones PNG: identidade da DKF em atalhos e dispositivos móveis.
 - `vercel.json`: URLs limpas, headers de segurança e cache.
 - `tests/audit.mjs`: verificação de IDs, imagens, links locais e configurações.
 - `.github/workflows/quality.yml`: validação automática a cada envio para o GitHub.
@@ -44,3 +45,7 @@ Ao alterar produtos, confira:
 - opção correspondente no formulário de briefing, quando fizer sentido;
 - `sitemap.xml`, caso uma nova página pública seja criada.
 - edição/ano do material, recorrência, autoria e condições mostradas no checkout.
+- se toda promessa comercial pode ser comprovada e se o checkout repete as mesmas condições da loja;
+- se produtos com edição anual continuam atuais antes de recolocá-los na vitrine.
+
+Produtos desatualizados permanecem fora da vitrine até que conteúdo, capa e checkout sejam revisados em conjunto. Avaliações só devem ser publicadas com conteúdo real e autorização do cliente.

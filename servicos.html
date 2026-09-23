@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,8 @@
   <meta name="twitter:description" content="Serviços práticos e produtos digitais em um só lugar.">
   <meta name="twitter:image" content="https://dkf-consultoria.vercel.app/assets/site/og-store.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="service-body">
@@ -84,7 +86,7 @@
           <p class="eyebrow">Loja DKF</p>
           <h1>Serviços práticos e produtos digitais em um só lugar.</h1>
           <p class="hero-text">
-            Escolha uma solução pronta, pague com segurança pela Kiwify e receba o próximo passo sem confusão. Aqui ficam os serviços rápidos da DKF e os produtos digitais disponíveis para compra imediata.
+            Escolha uma solução sem confusão. Produtos digitais seguem direto para a Kiwify; serviços práticos passam pelo briefing e pela confirmação do escopo antes do pagamento.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#produtos-digitais">Ver produtos digitais</a>
@@ -96,8 +98,8 @@
           <span>Como comprar</span>
           <ol>
             <li>Escolha serviço, produto ou pack.</li>
-            <li>Pague direto pela Kiwify.</li>
-            <li>Receba acesso digital ou envie o briefing.</li>
+            <li>Em serviços, envie o briefing primeiro.</li>
+            <li>Receba o checkout correto e confirme o pedido.</li>
             <li>Fale com a DKF se quiser montar um combo.</li>
           </ol>
         </div>
@@ -120,12 +122,12 @@
 
         <article class="checkout-card reveal">
           <div>
-            <span class="service-tag">Checkout principal</span>
+            <span class="service-tag">Serviço inicial</span>
             <h3>DKF Serviços Digitais</h3>
-            <p>O checkout de R$ 25,00 atende somente itens básicos compatíveis com esse valor. Para qualquer serviço com preço diferente, envie o briefing e confirme o total antes de pagar.</p>
+            <p>Demandas básicas começam em R$ 25,00. Envie o briefing para a DKF confirmar exatamente o que será entregue, o prazo e o checkout correto antes do pagamento.</p>
           </div>
           <div class="checkout-actions">
-            <strong>checkout de R$ 25,00</strong>
+            <strong>a partir de R$ 25,00</strong>
             <a class="btn btn-primary service-select" href="#pedir" data-service="Serviço básico de R$ 25" data-package="Serviço básico - R$ 25">Confirmar pedido</a>
           </div>
         </article>
@@ -241,7 +243,7 @@
         <search class="store-tools reveal" aria-label="Buscar e filtrar produtos">
           <label class="store-search">
             <span>Buscar produto</span>
-            <input type="search" placeholder="Ex.: TikTok, planilha, IA..." data-store-search>
+            <input type="search" placeholder="Ex.: planilha, IA, marketing..." data-store-search>
           </label>
           <div class="store-filters" role="group" aria-label="Filtrar por categoria">
             <button class="filter-button" type="button" data-store-filter="todos" aria-pressed="true">Todos</button>
@@ -250,189 +252,147 @@
             <button class="filter-button" type="button" data-store-filter="ia" aria-pressed="false">IA e trabalho</button>
             <button class="filter-button" type="button" data-store-filter="parceiros" aria-pressed="false">Parceiros</button>
           </div>
-          <p class="store-results" data-results-status aria-live="polite">13 produtos encontrados</p>
+          <p class="store-results" data-results-status aria-live="polite">10 produtos encontrados</p>
         </search>
 
         <div class="digital-grid">
-          <article class="digital-card reveal" data-product-card data-category="ia">
+          <article class="digital-card reveal" data-product-card data-category="ia" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/o75cnyE" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/automacao-ia-480.webp 480w, assets/products/automacao-ia.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/automacao-ia.jpg" width="1200" height="750" alt="Capa do produto Automação com IA" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/automacao-ia-480.webp 480w, assets/products/automacao-ia.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/automacao-ia.jpg" width="1200" height="750" alt="Capa do produto Automação com IA" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">IA e automação</span>
-              <h3>Automação com IA: Trabalhe Menos, Lucre Mais</h3>
-              <p>Aprenda a automatizar tarefas repetitivas usando ferramentas de IA gratuitas e pagas, economizando horas por semana sem precisar programar.</p>
-              <div class="product-notes"><span>Material digital</span><span>Formato, requisitos e suporte descritos no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 97,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/o75cnyE" target="_blank" rel="noopener noreferrer" aria-label="Comprar Automação com IA pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Automação com IA para Tarefas do Dia a Dia</h3>
+              <p itemprop="description">Material introdutório sobre ferramentas de IA e formas de organizar tarefas repetitivas. Os resultados dependem da ferramenta, configuração e rotina de cada pessoa.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Confirme formato, licença e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="97.00">R$ 97,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/o75cnyE" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: Automação com IA na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="ia">
+          <article class="digital-card reveal" data-product-card data-category="ia" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/AMQ0nT9" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/freelancer-digital-480.webp 480w, assets/products/freelancer-digital.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/freelancer-digital.jpg" width="1200" height="750" alt="Capa do produto Freelancer Digital" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/freelancer-digital-480.webp 480w, assets/products/freelancer-digital.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/freelancer-digital.jpg" width="1200" height="750" alt="Capa do produto Freelancer Digital" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Freelancer</span>
-              <h3>Freelancer Digital: Seu Primeiro Cliente em 30 Dias</h3>
-              <p>Guia para começar como freelancer digital, montar portfólio, definir preços e buscar seu primeiro contrato com mais clareza.</p>
-              <div class="product-notes"><span>Material digital</span><span>Formato, requisitos e suporte descritos no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 67,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/AMQ0nT9" target="_blank" rel="noopener noreferrer" aria-label="Comprar Freelancer Digital pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Freelancer Digital: Portfólio e Prospecção</h3>
+              <p itemprop="description">Guia para começar como freelancer digital, montar portfólio, definir preços e buscar contratos com mais clareza, sem promessa de prazo ou resultado.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Confirme formato, licença e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="67.00">R$ 67,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/AMQ0nT9" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: Freelancer Digital na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="produtividade">
-            <a class="digital-media" href="https://pay.kiwify.com.br/GznMGU9" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/planner-digital-480.webp 480w, assets/products/planner-digital.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/planner-digital.jpg" width="1200" height="750" alt="Capa do produto Planner Digital 2025" loading="lazy" decoding="async"></picture>
-            </a>
-            <div class="digital-body">
-              <span class="service-tag">Produtividade</span>
-              <h3>Planner Digital 2025: Metas, Rotina e Produtividade</h3>
-              <p>Edição 2025 do planner digital para organizar rotina, definir metas e acompanhar produtividade. Confira se a estrutura desta edição atende ao seu uso.</p>
-              <div class="product-notes"><span>Edição 2025</span><span>Material digital; detalhes e suporte no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 27,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/GznMGU9" target="_blank" rel="noopener noreferrer" aria-label="Comprar Planner Digital 2025 pela Kiwify">Comprar agora</a>
-            </div>
-          </article>
-
-          <article class="digital-card reveal" data-product-card data-category="marketing">
-            <a class="digital-media" href="https://pay.kiwify.com.br/JJ3d5om" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/reels-stories-480.webp 480w, assets/products/reels-stories.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/reels-stories.jpg" width="1200" height="750" alt="Capa do produto Reels e Stories 2025" loading="lazy" decoding="async"></picture>
-            </a>
-            <div class="digital-body">
-              <span class="service-tag">Instagram</span>
-              <h3>Reels e Stories que Vendem: Estratégia 2025</h3>
-              <p>Material da edição 2025 sobre estratégia visual e copywriting para Reels e Stories. Confirme no checkout se o conteúdo atende ao seu momento.</p>
-              <div class="product-notes"><span>Edição 2025</span><span>Material digital; detalhes e suporte no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 37,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/JJ3d5om" target="_blank" rel="noopener noreferrer" aria-label="Comprar Reels e Stories 2025 pela Kiwify">Comprar agora</a>
-            </div>
-          </article>
-
-          <article class="digital-card reveal" data-product-card data-category="marketing">
+          <article class="digital-card reveal" data-product-card data-category="marketing" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/ZxbNKGe" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/afiliados-480.webp 480w, assets/products/afiliados.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/afiliados.jpg" width="1200" height="750" alt="Capa do produto Renda com Afiliados" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/afiliados-480.webp 480w, assets/products/afiliados.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/afiliados.jpg" width="1200" height="750" alt="Capa do produto Renda com Afiliados" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Afiliados</span>
-              <h3>Renda com Afiliados: Do Zero ao Primeiro Saque</h3>
-              <p>Passo a passo para começar com produtos digitais, entender comissões e divulgar ofertas sem criar um produto do zero.</p>
-              <div class="product-notes"><span>Material digital</span><span>Formato, requisitos e suporte descritos no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 57,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/ZxbNKGe" target="_blank" rel="noopener noreferrer" aria-label="Comprar Renda com Afiliados pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Renda com Afiliados: Fundamentos para Começar</h3>
+              <p itemprop="description">Introdução a produtos digitais, comissões e divulgação de ofertas. Vendas e resultados dependem da execução, do mercado e das plataformas utilizadas.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Confirme formato, licença e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="57.00">R$ 57,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/ZxbNKGe" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: Renda com Afiliados na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="marketing">
+          <article class="digital-card reveal" data-product-card data-category="marketing" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/YHKRHdo" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/scripts-copy-480.webp 480w, assets/products/scripts-copy.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/scripts-copy.jpg" width="1200" height="750" alt="Capa do produto 100 Scripts de Copy" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/scripts-copy-480.webp 480w, assets/products/scripts-copy.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/scripts-copy.jpg" width="1200" height="750" alt="Capa do produto 100 Scripts de Copy" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Copywriting</span>
-              <h3>100 Scripts de Copy para Vender nas Redes</h3>
-              <p>Scripts prontos para posts, stories, legendas e anúncios. Uma base rápida para adaptar ao seu produto e publicar com mais frequência.</p>
-              <div class="product-notes"><span>Material digital</span><span>Formato, requisitos e suporte descritos no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 27,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/YHKRHdo" target="_blank" rel="noopener noreferrer" aria-label="Comprar 100 Scripts de Copy pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">100 Scripts de Copy para Vender nas Redes</h3>
+              <p itemprop="description">Scripts para posts, stories, legendas e anúncios. Uma base para adaptar ao produto, público e regras de cada plataforma.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Confirme formato, licença e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="27.00">R$ 27,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/YHKRHdo" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: 100 Scripts de Copy na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="marketing">
+          <article class="digital-card reveal" data-product-card data-category="marketing" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/XdpZxgi" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/marketing-digital-480.webp 480w, assets/products/marketing-digital.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/marketing-digital.jpg" width="1200" height="750" alt="Capa do produto Marketing Digital do Zero" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/marketing-digital-480.webp 480w, assets/products/marketing-digital.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/marketing-digital.jpg" width="1200" height="750" alt="Capa do produto Marketing Digital do Zero" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Marketing</span>
-              <h3>Marketing Digital do Zero: Guia Completo</h3>
-              <p>Guia para quem está começando: tráfego, conteúdo, funil de vendas e estratégias práticas para entender o básico sem se perder.</p>
-              <div class="product-notes"><span>Material digital</span><span>Formato, requisitos e suporte descritos no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 47,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/XdpZxgi" target="_blank" rel="noopener noreferrer" aria-label="Comprar Marketing Digital do Zero pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Marketing Digital do Zero: Guia Introdutório</h3>
+              <p itemprop="description">Guia para quem está começando: tráfego, conteúdo, funil de vendas e fundamentos para entender o assunto sem se perder.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Confirme formato, licença e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="47.00">R$ 47,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/XdpZxgi" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: Marketing Digital do Zero na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="produtividade">
+          <article class="digital-card reveal" data-product-card data-category="produtividade" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/3KS8MTv" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/controle-financeiro-480.webp 480w, assets/products/controle-financeiro.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/controle-financeiro.jpg" width="1200" height="750" alt="Capa do produto Planilha Definitiva de Controle Financeiro" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/controle-financeiro-480.webp 480w, assets/products/controle-financeiro.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/controle-financeiro.jpg" width="1200" height="750" alt="Capa do produto Planilha de Controle Financeiro" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Finanças</span>
-              <h3>Planilha Definitiva de Controle Financeiro</h3>
-              <p>Planilha para controlar receitas, despesas, metas e investimentos de forma simples, com estrutura para Google Sheets e Excel.</p>
-              <div class="product-notes"><span>Google Sheets e Excel, conforme checkout</span><span>Suporte e atualizações pelo produtor</span></div>
-              <div class="digital-meta"><strong>R$ 27,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/3KS8MTv" target="_blank" rel="noopener noreferrer" aria-label="Comprar Planilha de Controle Financeiro pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Planilha de Controle Financeiro</h3>
+              <p itemprop="description">Planilha para organizar receitas, despesas, metas e investimentos. Confirme a compatibilidade com seu aplicativo antes da compra.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Confirme formato, compatibilidade e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="27.00">R$ 27,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/3KS8MTv" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: Planilha de Controle Financeiro na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="marketing">
-            <a class="digital-media" href="https://pay.kiwify.com.br/7s9G1Ss" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/tiktok-viral-480.webp 480w, assets/products/tiktok-viral.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/tiktok-viral.jpg" width="1200" height="750" alt="Capa do produto TikTok do Zero ao Viral 2025" loading="lazy" decoding="async"></picture>
-            </a>
-            <div class="digital-body">
-              <span class="service-tag">TikTok</span>
-              <h3>TikTok do Zero ao Viral: Método 2025</h3>
-              <p>Edição 2025 do guia para começar no TikTok e organizar ideias de conteúdo. Recursos da plataforma podem ter mudado desde a publicação.</p>
-              <div class="product-notes"><span>Edição 2025</span><span>Material digital; detalhes e suporte no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 47,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/7s9G1Ss" target="_blank" rel="noopener noreferrer" aria-label="Comprar TikTok do Zero ao Viral 2025 pela Kiwify">Comprar agora</a>
-            </div>
-          </article>
-
-          <article class="digital-card reveal" data-product-card data-category="ia">
+          <article class="digital-card reveal" data-product-card data-category="ia" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/hadPx6C" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/chatgpt-conteudo-480.webp 480w, assets/products/chatgpt-conteudo.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/chatgpt-conteudo.jpg" width="1200" height="750" alt="Capa do produto ChatGPT para Criadores de Conteúdo" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/chatgpt-conteudo-480.webp 480w, assets/products/chatgpt-conteudo.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/chatgpt-conteudo.jpg" width="1200" height="750" alt="Capa do produto ChatGPT para Criadores de Conteúdo" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">ChatGPT</span>
-              <h3>ChatGPT para Criadores de Conteúdo</h3>
-              <p>Prompts e ideias para criar posts, roteiros, legendas e scripts para TikTok, Instagram e YouTube com mais agilidade.</p>
-              <div class="product-notes"><span>Material digital</span><span>Ferramentas podem mudar; confira a edição no checkout</span></div>
-              <div class="digital-meta"><strong>R$ 37,00</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/hadPx6C" target="_blank" rel="noopener noreferrer" aria-label="Comprar ChatGPT para Criadores pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">ChatGPT para Criadores de Conteúdo</h3>
+              <p itemprop="description">Prompts e ideias para apoiar a criação de posts, roteiros, legendas e scripts. Revise sempre o conteúdo antes de publicar.</p>
+              <div class="product-notes"><span>Entrega pela Kiwify</span><span>Ferramentas podem mudar; confirme a edição antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="37.00">R$ 37,00</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/hadPx6C" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: ChatGPT para Criadores na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="marketing">
+          <article class="digital-card reveal" data-product-card data-category="marketing" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/CrNXKaS" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/pack-luxo-viral-480.webp 480w, assets/products/pack-luxo-viral.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/pack-luxo-viral.jpg" width="1200" height="750" alt="Capa do produto Pack Luxo Viral" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/pack-luxo-viral-480.webp 480w, assets/products/pack-luxo-viral.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/pack-luxo-viral.jpg" width="1200" height="750" alt="Capa do produto Pack Luxo Viral" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Pack de vídeos</span>
-              <h3>Pack Luxo Viral — 300 Clips para TikTok, Reels e Shorts</h3>
-              <p>Pack com 300 clips de vida de luxo para conteúdos de lifestyle, motivação, páginas dark, status e vídeos curtos.</p>
-              <div class="product-notes"><span>300 clipes digitais</span><span>Licença de uso e suporte conforme checkout</span></div>
-              <div class="digital-meta"><strong>R$ 12,90</strong><span>Acesso pela Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/CrNXKaS" target="_blank" rel="noopener noreferrer" aria-label="Comprar Pack Luxo Viral pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Pack Luxo Viral — 300 Clipes para Vídeos Curtos</h3>
+              <p itemprop="description">Pack com 300 clipes de lifestyle e luxo para apoiar a edição de conteúdos curtos. O material não garante alcance ou viralização.</p>
+              <div class="product-notes"><span>300 clipes digitais</span><span>Confirme licença de uso e suporte antes de comprar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="12.90">R$ 12,90</strong><span>Acesso pela Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/CrNXKaS" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: Pack Luxo Viral na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="parceiros">
+          <article class="digital-card reveal" data-product-card data-category="parceiros" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/q6ikYiR?afid=BtB0tZYT" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/gleads-480.webp 480w, assets/products/gleads.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/gleads.jpg" width="1200" height="750" alt="Capa do produto parceiro GLeads" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/gleads-480.webp 480w, assets/products/gleads.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/gleads.jpg" width="1200" height="750" alt="Capa do produto parceiro GLeads" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Produto parceiro</span>
-              <h3>GLeads - Extrator de Leads do Google</h3>
-              <p>Ferramenta parceira para encontrar contatos de empresas e montar listas de prospecção para vender serviços digitais com mais organização.</p>
+              <h3 itemprop="name">GLeads - Extrator de Leads do Google</h3>
+              <p itemprop="description">Ferramenta de terceiro para localizar contatos públicos de empresas e organizar listas de prospecção. O uso deve respeitar a LGPD e as regras das plataformas.</p>
               <div class="product-notes"><span>Produto de terceiro; a DKF pode receber comissão</span><span>Cobrança de R$ 97,00 por ano</span></div>
-              <div class="digital-meta"><strong>R$ 97,00/ano</strong><span>Afiliado Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/q6ikYiR?afid=BtB0tZYT" target="_blank" rel="noopener noreferrer" aria-label="Comprar produto parceiro GLeads pela Kiwify">Comprar agora</a>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="97.00">R$ 97,00/ano</strong><span>Afiliado Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/q6ikYiR?afid=BtB0tZYT" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: produto parceiro GLeads na Kiwify">Comprar agora</a>
             </div>
           </article>
 
-          <article class="digital-card reveal" data-product-card data-category="parceiros">
+          <article class="digital-card reveal" data-product-card data-category="parceiros" itemscope itemtype="https://schema.org/Product">
             <a class="digital-media" href="https://pay.kiwify.com.br/CI4y7F9?afid=MhOl1cPy" target="_blank" rel="noopener noreferrer">
-              <picture><source type="image/webp" srcset="assets/products/influencia-milionaria-480.webp 480w, assets/products/influencia-milionaria.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/products/influencia-milionaria.jpg" width="1200" height="750" alt="Capa do produto parceiro Método Influência Milionária" loading="lazy" decoding="async"></picture>
+              <picture><source type="image/webp" srcset="assets/products/influencia-milionaria-480.webp 480w, assets/products/influencia-milionaria.webp 1200w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img itemprop="image" src="assets/products/influencia-milionaria.jpg" width="1200" height="750" alt="Capa do produto parceiro Método Influência Milionária" loading="lazy" decoding="async"></picture>
             </a>
             <div class="digital-body">
               <span class="service-tag">Produto parceiro</span>
-              <h3>Método Influência Milionária</h3>
-              <p>Produto parceiro para quem quer melhorar posicionamento, influência e monetização nas redes com mais direção estratégica.</p>
-              <div class="product-notes"><span>Produto de terceiro; a DKF pode receber comissão</span><span>Garantia, suporte e entrega são do produtor</span></div>
-              <div class="digital-meta"><strong>R$ 197,00</strong><span>Afiliado Kiwify</span></div>
-              <a class="btn btn-primary" href="https://pay.kiwify.com.br/CI4y7F9?afid=MhOl1cPy" target="_blank" rel="noopener noreferrer" aria-label="Comprar produto parceiro Método Influência Milionária pela Kiwify">Comprar agora</a>
+              <h3 itemprop="name">Método Influência Milionária</h3>
+              <p itemprop="description">Produto de terceiro sobre posicionamento, conteúdo e monetização nas redes. Resultados dependem da aplicação, do público e das plataformas.</p>
+              <div class="product-notes"><span>Produto de terceiro; a DKF pode receber comissão</span><span>O checkout pode oferecer adicional opcional; revise o total antes de pagar</span></div>
+              <div class="digital-meta" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><strong><meta itemprop="priceCurrency" content="BRL"><meta itemprop="price" content="197.00">R$ 197,00</strong><span>Afiliado Kiwify</span><link itemprop="availability" href="https://schema.org/InStock"></div>
+              <a class="btn btn-primary" href="https://pay.kiwify.com.br/CI4y7F9?afid=MhOl1cPy" target="_blank" rel="noopener noreferrer" aria-label="Comprar agora: produto parceiro Método Influência Milionária na Kiwify">Comprar agora</a>
             </div>
           </article>
         </div>
@@ -451,9 +411,9 @@
       <div class="container briefing-grid">
         <div class="section-copy reveal">
           <p class="eyebrow">Briefing</p>
-          <h2>Comprou um serviço prático? Envie os detalhes por aqui.</h2>
-          <p>Produtos digitais liberam acesso pela Kiwify. Serviços práticos precisam de briefing para a DKF confirmar escopo, preço, prazo e materiais antes do pagamento.</p>
-          <a class="btn btn-ghost service-pay" href="https://pay.kiwify.com.br/ipSMY6X" target="_blank" rel="noopener noreferrer">Checkout de R$ 25 para pedido já confirmado</a>
+          <h2>Quer contratar um serviço prático? Envie os detalhes por aqui.</h2>
+          <p>Produtos digitais liberam acesso pela Kiwify. Para serviços práticos, envie o briefing e aguarde a confirmação de escopo, preço, prazo e materiais antes de pagar.</p>
+          <a class="btn btn-ghost service-pay" href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Quero%20confirmar%20o%20escopo%20do%20servi%C3%A7o%20b%C3%A1sico%20antes%20de%20receber%20o%20checkout." target="_blank" rel="noopener noreferrer">Confirmar antes de pagar</a>
         </div>
 
         <form action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal">
@@ -498,13 +458,10 @@
               <option value="Correções rápidas">Correções rápidas</option>
               <option value="Automação com IA">Automação com IA</option>
               <option value="Freelancer Digital">Freelancer Digital</option>
-              <option value="Planner Digital 2025">Planner Digital 2025</option>
-              <option value="Reels e Stories 2025">Reels e Stories 2025</option>
               <option value="Renda com Afiliados">Renda com Afiliados</option>
               <option value="100 Scripts de Copy">100 Scripts de Copy</option>
               <option value="Marketing Digital do Zero">Marketing Digital do Zero</option>
               <option value="Planilha de Controle Financeiro">Planilha de Controle Financeiro</option>
-              <option value="TikTok do Zero ao Viral 2025">TikTok do Zero ao Viral 2025</option>
               <option value="ChatGPT para Criadores">ChatGPT para Criadores</option>
               <option value="Pack Luxo Viral">Pack Luxo Viral</option>
               <option value="GLeads - Extrator de Leads do Google">GLeads - Extrator de Leads do Google</option>
@@ -545,12 +502,12 @@
         <article class="step reveal">
           <span>01</span>
           <h3>Pagamento seguro</h3>
-          <p>Os produtos e serviços usam checkout da Kiwify, com Pix ou cartão, dentro da estrutura da plataforma.</p>
+          <p>Produtos e serviços confirmados usam checkout da Kiwify, com Pix ou cartão, dentro da estrutura da plataforma.</p>
         </article>
         <article class="step reveal">
           <span>02</span>
           <h3>Acesso ou briefing</h3>
-          <p>Produto digital libera acesso pela Kiwify. Serviço prático precisa de briefing para a DKF começar a entrega.</p>
+          <p>Produto digital libera acesso pela Kiwify. Serviço prático recebe checkout somente após a confirmação do briefing.</p>
         </article>
         <article class="step reveal">
           <span>03</span>
@@ -564,6 +521,8 @@
   <footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
     <meta itemprop="name" content="DKF Consultoria Digital">
     <meta itemprop="url" content="https://dkf-consultoria.vercel.app/">
+    <meta itemprop="logo" content="https://dkf-consultoria.vercel.app/favicon.svg">
+    <meta itemprop="telephone" content="+55 51 99902-7441">
     <div class="container footer-inner">
       <a class="brand footer-brand" href="/#inicio" aria-label="DKF Loja Digital - início">
         <span class="brand-mark" aria-hidden="true"><img src="favicon.svg" alt="" width="64" height="64"></span>

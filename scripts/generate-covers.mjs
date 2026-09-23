@@ -2,15 +2,12 @@ import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
 
 const products = [
-  { file: 'automacao-ia', label: 'IA E AUTOMAÇÃO', lines: ['Automação com IA', 'Trabalhe menos,', 'lucre mais'], accent: '#25c7d9' },
-  { file: 'freelancer-digital', label: 'FREELANCER', lines: ['Freelancer digital', 'Seu primeiro cliente', 'em 30 dias'], accent: '#1fbf75' },
-  { file: 'planner-digital', label: 'PRODUTIVIDADE • 2025', lines: ['Planner digital', 'Metas, rotina e', 'produtividade'], accent: '#f5b942' },
-  { file: 'reels-stories', label: 'INSTAGRAM • 2025', lines: ['Reels e Stories', 'Estratégia para', 'conteúdo'], accent: '#f06b8a' },
-  { file: 'afiliados', label: 'AFILIADOS', lines: ['Renda com afiliados', 'Do zero ao', 'primeiro saque'], accent: '#1fbf75' },
+  { file: 'automacao-ia', label: 'IA E AUTOMAÇÃO', lines: ['Automação com IA', 'para tarefas do', 'dia a dia'], accent: '#25c7d9' },
+  { file: 'freelancer-digital', label: 'FREELANCER', lines: ['Freelancer digital', 'Portfólio e', 'prospecção'], accent: '#1fbf75' },
+  { file: 'afiliados', label: 'AFILIADOS', lines: ['Renda com afiliados', 'Fundamentos para', 'começar'], accent: '#1fbf75' },
   { file: 'scripts-copy', label: 'COPYWRITING', lines: ['100 scripts', 'de copy para', 'vender nas redes'], accent: '#f5b942' },
-  { file: 'marketing-digital', label: 'MARKETING', lines: ['Marketing digital', 'do zero'], accent: '#25c7d9' },
+  { file: 'marketing-digital', label: 'MARKETING', lines: ['Marketing digital', 'Guia introdutório'], accent: '#25c7d9' },
   { file: 'controle-financeiro', label: 'FINANÇAS', lines: ['Controle financeiro', 'Planilha prática'], accent: '#1fbf75' },
-  { file: 'tiktok-viral', label: 'TIKTOK • 2025', lines: ['TikTok do zero', 'ao viral'], accent: '#f06b8a' },
   { file: 'chatgpt-conteudo', label: 'CONTEÚDO COM IA', lines: ['ChatGPT para', 'criadores de', 'conteúdo'], accent: '#25c7d9' },
   { file: 'pack-luxo-viral', label: 'PACK DE VÍDEOS', lines: ['Pack Luxo Viral', '300 clipes para', 'vídeos curtos'], accent: '#f5b942' }
 ];
