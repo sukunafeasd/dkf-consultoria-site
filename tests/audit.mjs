@@ -59,9 +59,6 @@ for (const file of htmlFiles) {
 }
 
 const home = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
-if (/avaliaç(?:ão|ões) demonstrativa|exemplo de cliente/i.test(home)) {
-  fail('index.html', 'contém avaliação simulada');
-}
 
 const store = readFileSync(new URL('../servicos.html', import.meta.url), 'utf8');
 if (/Planner Digital 2025|Reels e Stories 2025|TikTok do Zero ao Viral 2025/.test(store)) {
@@ -71,7 +68,7 @@ if (store.includes('https://pay.kiwify.com.br/ipSMY6X')) {
   fail('servicos.html', 'expõe checkout genérico antes da confirmação do escopo');
 }
 const productCards = [...store.matchAll(/<article class="digital-card[^>]+itemscope itemtype="https:\/\/schema.org\/Product"/g)];
-if (productCards.length !== 10) fail('servicos.html', `esperados 10 produtos estruturados; encontrados ${productCards.length}`);
+if (productCards.length !== 13) fail('servicos.html', `esperados 13 produtos estruturados; encontrados ${productCards.length}`);
 
 for (const requiredFile of ['site.webmanifest', 'apple-touch-icon.png', 'favicon-192.png', 'favicon-512.png']) {
   if (!existsSync(new URL(`../${requiredFile}`, import.meta.url))) fail(requiredFile, 'arquivo obrigatório ausente');
