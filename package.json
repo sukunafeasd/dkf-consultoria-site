@@ -1,0 +1,20 @@
+{
+  "name": "dkf-consultoria-site",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "description": "Site institucional e loja da DKF Consultoria Digital.",
+  "scripts": {
+    "validate:html": "html-validate \"*.html\"",
+    "validate:css": "stylelint \"style.css\"",
+    "validate:js": "node --check script.js && node --check api/csp-report.js && node --check api/event.js && node --check scripts/generate-covers.mjs && node --check scripts/optimize-images.mjs",
+    "audit:local": "node tests/audit.mjs",
+    "test": "pnpm run validate:html && pnpm run validate:css && pnpm run validate:js && pnpm run audit:local"
+  },
+  "devDependencies": {
+    "html-validate": "11.16.0",
+    "stylelint": "17.15.0",
+    "stylelint-config-standard": "40.0.0",
+    "sharp": "0.35.4"
+  }
+}

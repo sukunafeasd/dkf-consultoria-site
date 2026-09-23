@@ -12,18 +12,24 @@
   <meta property="og:description" content="Sites, redes, automações e presença digital com foco no cliente e no negócio.">
   <meta property="og:url" content="https://dkf-consultoria.vercel.app/">
   <meta property="og:image" content="https://dkf-consultoria.vercel.app/assets/site/og-home.jpg">
+  <meta property="og:image:alt" content="DKF Consultoria Digital - soluções para negócios">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="DKF Consultoria Digital">
+  <meta property="og:locale" content="pt_BR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DKF Consultoria Digital">
   <meta name="twitter:description" content="Soluções digitais simples para resolver problemas reais do seu negócio.">
   <meta name="twitter:image" content="https://dkf-consultoria.vercel.app/assets/site/og-home.jpg">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preload" as="image" href="assets/site/hero-workspace.jpg">
+  <link rel="preload" as="image" href="assets/site/hero-workspace.webp" type="image/webp" imagesrcset="assets/site/hero-workspace-480.webp 480w, assets/site/hero-workspace.webp 1400w" imagesizes="(max-width: 680px) calc(100vw - 24px), (max-width: 1020px) 640px, 544px" fetchpriority="high">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header" data-header>
     <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+      <a class="brand" href="#inicio" aria-label="DKF Consultoria Digital - início">
         <span class="brand-mark" aria-hidden="true"><img src="favicon.svg" alt="" width="64" height="64"></span>
         <span class="brand-copy">
           <strong>DKF</strong>
@@ -77,7 +83,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="conteudo">
     <section id="inicio" class="hero section">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
@@ -101,7 +107,7 @@
         </div>
 
         <div class="hero-media reveal">
-          <img src="assets/site/hero-workspace.jpg" width="1400" height="935" alt="Espaço de trabalho moderno com notebooks e planejamento digital" decoding="async" fetchpriority="high">
+          <img src="assets/site/hero-workspace.webp" srcset="assets/site/hero-workspace-480.webp 480w, assets/site/hero-workspace.webp 1400w" sizes="(max-width: 680px) calc(100vw - 24px), (max-width: 1020px) 640px, 544px" width="1400" height="935" alt="Mesa de trabalho com notebook, celular e materiais de planejamento" decoding="async" fetchpriority="high">
           <div class="hero-panel" role="group" aria-label="Processo DKF">
             <div>
               <small>Processo DKF</small>
@@ -120,7 +126,10 @@
     <section id="sobre" class="section about">
       <div class="container split">
         <div class="photo-card reveal">
-          <img src="assets/site/team-planning.jpg" width="1200" height="800" alt="Equipe planejando soluções digitais em uma mesa de trabalho" loading="lazy" decoding="async">
+          <picture>
+            <source type="image/webp" srcset="assets/site/team-planning-480.webp 480w, assets/site/team-planning.webp 1200w" sizes="(max-width: 1020px) calc(100vw - 32px), 512px">
+            <img src="assets/site/team-planning.jpg" width="1200" height="800" alt="Equipe planejando soluções digitais em uma mesa de trabalho" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="section-copy reveal">
           <p class="eyebrow">Sobre a DKF</p>
@@ -213,38 +222,38 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Trabalhos</p>
-          <h2>Exemplos de entregas que mostram o tipo de solução que a DKF cria.</h2>
-          <p>Projetos digitais precisam ser fáceis de entender, rápidos de acessar e claros na hora de levar o cliente para a próxima ação.</p>
+          <h2>Referências do tipo de solução que a DKF cria.</h2>
+          <p>Estas referências públicas mostram estruturas e experiências do mercado. Cada projeto da DKF é criado para a realidade e os materiais do cliente.</p>
         </div>
 
         <div class="work-grid">
           <article class="work-card reveal">
-            <img src="assets/site/work-barbershop.jpg" width="900" height="598" alt="Ambiente de barbearia" loading="lazy" decoding="async">
+            <picture><source type="image/webp" srcset="assets/site/work-barbershop-480.webp 480w, assets/site/work-barbershop.webp 900w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/site/work-barbershop.jpg" width="900" height="598" alt="Ambiente de barbearia" loading="lazy" decoding="async"></picture>
             <div>
               <span>site + WhatsApp</span>
               <h3>Barbearia</h3>
               <p>Apresentação dos serviços, fotos, localização e caminho direto para agendamento.</p>
-              <a href="https://www.barbeariahermanos.com.br/unidades/tatuape/index.html" target="_blank" rel="noopener noreferrer">Ver exemplo</a>
+              <a href="https://www.barbeariahermanos.com.br/unidades/tatuape/index.html" target="_blank" rel="noopener noreferrer">Ver referência de site para barbearia</a>
             </div>
           </article>
 
           <article class="work-card reveal">
-            <img src="assets/site/work-salon.jpg" width="900" height="675" alt="Espaço de salão de beleza" loading="lazy" decoding="async">
+            <picture><source type="image/webp" srcset="assets/site/work-salon-480.webp 480w, assets/site/work-salon.webp 900w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/site/work-salon.jpg" width="900" height="675" alt="Espaço de salão de beleza" loading="lazy" decoding="async"></picture>
             <div>
               <span>landing page</span>
               <h3>Salão de beleza</h3>
               <p>Oferta clara, apresentação visual, contatos e estrutura para gerar agendamentos.</p>
-              <a href="https://esteticasuperbonita.com.br" target="_blank" rel="noopener noreferrer">Ver exemplo</a>
+              <a href="https://esteticasuperbonita.com.br" target="_blank" rel="noopener noreferrer">Ver referência de landing page</a>
             </div>
           </article>
 
           <article class="work-card reveal">
-            <img src="assets/site/work-restaurant.jpg" width="900" height="1240" alt="Hambúrguer artesanal em mesa de restaurante" loading="lazy" decoding="async">
+            <picture><source type="image/webp" srcset="assets/site/work-restaurant-480.webp 480w, assets/site/work-restaurant.webp 900w" sizes="(max-width: 680px) calc(100vw - 24px), 360px"><img src="assets/site/work-restaurant.jpg" width="900" height="1240" alt="Hambúrguer artesanal em mesa de restaurante" loading="lazy" decoding="async"></picture>
             <div>
               <span>cardápio digital</span>
               <h3>Restaurante</h3>
               <p>Cardápio simples para o cliente escolher, entender e pedir com menos conversa perdida.</p>
-              <a href="https://www.whatsmenu.com.br/paradahotdog" target="_blank" rel="noopener noreferrer">Ver exemplo</a>
+              <a href="https://www.whatsmenu.com.br/paradahotdog" target="_blank" rel="noopener noreferrer">Ver referência de cardápio digital</a>
             </div>
           </article>
         </div>
@@ -252,49 +261,53 @@
         <div id="depoimentos" class="reviews-block reveal">
           <div class="reviews-head">
             <p class="eyebrow">Avaliações</p>
-            <h3>O que os clientes dizem depois da entrega.</h3>
+            <h3>O que os clientes valorizam depois da entrega.</h3>
+            <p>Exemplos demonstrativos de feedback para apresentar os resultados buscados em cada tipo de serviço.</p>
           </div>
 
           <div class="review-grid">
             <article class="review-card">
-              <div class="review-score" role="img" aria-label="Avaliação 5 de 5">
+              <div class="review-score">
                 <span class="review-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                <span class="sr-only">Avaliação demonstrativa: 5 de 5 estrelas.</span>
                 <span class="review-tag">site + WhatsApp</span>
               </div>
               <blockquote>
                 “Fiz meu site da barbearia com a DKF e o resultado foi incrível. Meus clientes agora me acham fácil pelo Google e o WhatsApp não para de tocar.”
               </blockquote>
               <cite>
-                <strong>João Pedro</strong>
-                <span>Barbearia</span>
+                <strong>Exemplo de cliente</strong>
+                <span>Segmento: barbearia</span>
               </cite>
             </article>
 
             <article class="review-card">
-              <div class="review-score" role="img" aria-label="Avaliação 4 de 5">
+              <div class="review-score">
                 <span class="review-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span class="star-muted">★</span></span>
+                <span class="sr-only">Avaliação demonstrativa: 4 de 5 estrelas.</span>
                 <span class="review-tag">landing page</span>
               </div>
               <blockquote>
                 “Criei uma landing page para meu salão e a diferença foi enorme. Mais agendamentos, menos mensagens perdidas e muito mais profissionalismo.”
               </blockquote>
               <cite>
-                <strong>Camila Souza</strong>
-                <span>Salão de beleza</span>
+                <strong>Exemplo de cliente</strong>
+                <span>Segmento: salão de beleza</span>
               </cite>
             </article>
 
             <article class="review-card">
-              <div class="review-score" role="img" aria-label="Avaliação 5 de 5">
+              <div class="review-score">
                 <span class="review-stars" aria-hidden="true"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></span>
+                <span class="sr-only">Avaliação demonstrativa: 5 de 5 estrelas.</span>
                 <span class="review-tag">aplicativo web</span>
               </div>
               <blockquote>
                 “Desenvolvi um app simples para meus alunos agendarem aulas. Ficou muito bom e me ajudou a organizar toda a agenda.”
               </blockquote>
               <cite>
-                <strong>Rafael Mendes</strong>
-                <span>Personal trainer</span>
+                <strong>Exemplo de cliente</strong>
+                <span>Segmento: personal trainer</span>
               </cite>
             </article>
           </div>
@@ -427,11 +440,11 @@
           </div>
           <div class="contact-actions">
             <a class="btn btn-whatsapp" href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20DKF.%20Quero%20explicar%20o%20que%20est%C3%A1%20travando%20meu%20neg%C3%B3cio%20digital%20hoje." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
-            <a class="text-link" href="mailto:mouradieferson4@gmail.com">mouradieferson4@gmail.com</a>
+            <a class="text-link" href="#formulario-contato">Prefiro enviar pelo formulário</a>
           </div>
         </div>
 
-        <form action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal">
+        <form id="formulario-contato" action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal">
           <input type="hidden" name="_subject" value="Novo contato pelo site principal da DKF">
           <input type="hidden" name="_next" value="https://dkf-consultoria.vercel.app/obrigado">
           <label class="form-honeypot" aria-hidden="true">
@@ -444,7 +457,7 @@
           </label>
           <label>
             <span>WhatsApp</span>
-            <input type="tel" name="whatsapp" placeholder="(51) 99999-9999" inputmode="tel" autocomplete="tel" pattern="[0-9()+\-\s]{8,20}" title="Informe um WhatsApp válido com DDD" required>
+            <input type="tel" name="whatsapp" placeholder="(51) 99999-9999" inputmode="tel" autocomplete="tel" pattern="(?=(?:.*[0-9]){10,15}$)(?:[0-9]|\s|\+|\(|\)|\.|-){10,25}" title="Informe de 10 a 15 números, incluindo o DDD" required>
           </label>
           <label>
             <span>Tipo de negócio</span>
@@ -454,16 +467,18 @@
             <span>O que você precisa resolver?</span>
             <textarea name="mensagem" rows="4" placeholder="Explique o problema ou a ideia. Ex.: quero melhorar meu perfil, criar uma página, organizar pedidos, aparecer melhor no Google..." required></textarea>
           </label>
-          <p class="form-note">Ao enviar, você autoriza a DKF a responder seu contato pelos dados informados.</p>
+          <p class="form-note">Ao enviar, você autoriza a DKF a responder pelos dados informados e confirma que leu a <a href="/privacidade">Política de Privacidade</a>.</p>
           <button class="btn btn-primary" type="submit">Enviar mensagem</button>
         </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
+    <meta itemprop="name" content="DKF Consultoria Digital">
+    <meta itemprop="url" content="https://dkf-consultoria.vercel.app/">
     <div class="container footer-inner">
-      <a class="brand footer-brand" href="#inicio" aria-label="DKF Consultoria Digital">
+      <a class="brand footer-brand" href="#inicio" aria-label="DKF Consultoria Digital - início" itemprop="url">
         <span class="brand-mark" aria-hidden="true"><img src="favicon.svg" alt="" width="64" height="64"></span>
         <span class="brand-copy">
           <strong>DKF</strong>
@@ -477,10 +492,12 @@
         <a href="#contato">Contato</a>
       </div>
       <div class="footer-socials">
-        <a href="https://www.instagram.com/dkf_consultoria" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.tiktok.com/@dkf_consultoria" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.instagram.com/dkf_consultoria" target="_blank" rel="noopener noreferrer" itemprop="sameAs">Instagram</a>
+        <a href="https://www.tiktok.com/@dkf_consultoria" target="_blank" rel="noopener noreferrer" itemprop="sameAs">TikTok</a>
+        <a href="/privacidade">Privacidade</a>
+        <a href="/termos">Termos</a>
       </div>
-      <p>© 2026 DKF Consultoria Digital. Soluções digitais para negócios.</p>
+      <p>© <span data-current-year>2026</span> DKF Consultoria Digital. Soluções digitais para negócios.</p>
     </div>
   </footer>
 

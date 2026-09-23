@@ -8,6 +8,7 @@ Site institucional e loja da DKF Consultoria Digital, publicados na Vercel.
 - `servicos.html`: loja DKF com serviços práticos, produtos digitais e produtos parceiros com checkout pela Kiwify.
 - `obrigado.html`: página de retorno após envio de formulário.
 - `404.html`: página de erro personalizada.
+- `privacidade.html`, `termos.html` e `reembolso.html`: informações públicas de tratamento de dados e compra.
 
 ## Estrutura
 
@@ -16,6 +17,8 @@ Site institucional e loja da DKF Consultoria Digital, publicados na Vercel.
 - `assets/site/`: imagens do site e previews sociais.
 - `assets/products/`: capas dos produtos da loja.
 - `vercel.json`: URLs limpas, headers de segurança e cache.
+- `tests/audit.mjs`: verificação de IDs, imagens, links locais e configurações.
+- `.github/workflows/quality.yml`: validação automática a cada envio para o GitHub.
 
 ## Publicação
 
@@ -25,9 +28,19 @@ https://dkf-consultoria.vercel.app/
 
 ## Manutenção
 
+Instale as dependências e valide o projeto antes de publicar:
+
+```powershell
+pnpm install
+pnpm test
+```
+
+As capas próprias podem ser regeneradas com `pnpm exec node scripts/generate-covers.mjs`. As versões WebP são atualizadas com `pnpm exec node scripts/optimize-images.mjs`.
+
 Ao alterar produtos, confira:
 
 - título, descrição, preço e link Kiwify;
 - capa em `assets/products/`;
 - opção correspondente no formulário de briefing, quando fizer sentido;
 - `sitemap.xml`, caso uma nova página pública seja criada.
+- edição/ano do material, recorrência, autoria e condições mostradas no checkout.
