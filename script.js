@@ -186,9 +186,14 @@ const trackEvent = (eventName, product = '') => {
   });
 
   if (navigator.sendBeacon) {
-    navigator.sendBeacon('/api/event', new Blob([payload], { type: 'application/json' }));
+    const queued = navigator.sendBeacon('/api/event', new Blob([payload], { type: 'application/json' }));
+    if (!queued) {
+      fetch('/api/event', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true })
+        .catch(() => {});
+    }
   } else {
-    fetch('/api/event', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true });
+    fetch('/api/event', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true })
+      .catch(() => {});
   }
 };
 
