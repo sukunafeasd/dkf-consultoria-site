@@ -12,8 +12,17 @@ const fail = (file, message) => failures.push(`${file}: ${message}`);
 for (const file of htmlFiles) {
   const html = readFileSync(new URL(file, root), 'utf8');
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
+  const idSet = new Set(ids);
   const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicates.length) fail(file, `IDs duplicados: ${[...new Set(duplicates)].join(', ')}`);
+
+  for (const match of html.matchAll(/href="#([^"]+)"/g)) {
+    if (!idSet.has(match[1])) fail(file, `âncora interna sem destino: #${match[1]}`);
+  }
+
+  if (/<section\b[^>]*id="faq"[\s\S]*?<details\s+open\b/.test(html)) {
+    fail(file, 'FAQ não deve abrir perguntas por padrão');
+  }
 
   for (const match of html.matchAll(/<img\b([^>]+)>/g)) {
     if (!/\balt="[^"]*"/.test(match[1])) fail(file, 'imagem sem texto alternativo');
