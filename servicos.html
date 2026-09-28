@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loja DKF - Serviços práticos e produtos digitais</title>
   <meta name="description" content="Loja DKF com serviços digitais práticos, produtos digitais, packs, guias, planilhas e soluções prontas com pagamento seguro pela Kiwify.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0f172a">
   <link rel="canonical" href="https://dkf-consultoria.vercel.app/servicos">
   <meta property="og:type" content="website">
@@ -21,6 +22,7 @@
   <meta name="twitter:title" content="Loja DKF">
   <meta name="twitter:description" content="Serviços práticos e produtos digitais em um só lugar.">
   <meta name="twitter:image" content="https://dkf-consultoria.vercel.app/assets/site/og-store.jpg">
+  <meta name="twitter:image:alt" content="Loja DKF - serviços práticos e produtos digitais">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
@@ -458,9 +460,10 @@
           <a class="btn btn-ghost service-pay" href="https://wa.me/5551999027441?text=Ol%C3%A1!%20Quero%20confirmar%20o%20escopo%20do%20servi%C3%A7o%20b%C3%A1sico%20antes%20de%20receber%20o%20checkout." target="_blank" rel="noopener noreferrer">Confirmar antes de pagar</a>
         </div>
 
-        <form action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal">
+        <form action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal" data-secure-form>
           <input type="hidden" name="_subject" value="Novo pedido de serviço pronto DKF">
           <input type="hidden" name="_next" value="https://dkf-consultoria.vercel.app/obrigado">
+          <input type="hidden" name="form_started_at" data-form-started-at>
           <label class="form-honeypot" aria-hidden="true">
             <span>Não preencha este campo</span>
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
@@ -476,7 +479,7 @@
           </label>
           <label>
             <span>Nome</span>
-            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required>
+            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" minlength="2" maxlength="80" required>
           </label>
           <label>
             <span>WhatsApp</span>
@@ -484,7 +487,7 @@
           </label>
           <label>
             <span>E-mail</span>
-            <input type="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+            <input type="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" maxlength="120" required>
           </label>
           <label>
             <span>Serviço ou produto</span>
@@ -517,21 +520,22 @@
           </label>
           <label>
             <span>Pacote ou valor anunciado</span>
-            <input id="selectPacote" type="text" name="pacote_valor" placeholder="Ex.: Landing simples - R$ 250" required>
+            <input id="selectPacote" type="text" name="pacote_valor" placeholder="Ex.: Landing simples - R$ 250" maxlength="140" required>
           </label>
           <label>
             <span>Número do pedido Kiwify (se já pagou)</span>
-            <input type="text" name="pedido_kiwify" placeholder="Opcional para orçamento; informe se já comprou" autocomplete="off">
+            <input type="text" name="pedido_kiwify" placeholder="Opcional para orçamento; informe se já comprou" autocomplete="off" maxlength="80">
           </label>
           <label>
             <span>O que precisa ser feito?</span>
-            <textarea name="descricao" rows="5" placeholder="Explique o pedido, objetivo, links, referências e prazo desejado." required></textarea>
+            <textarea name="descricao" rows="5" placeholder="Explique o pedido, objetivo, links, referências e prazo desejado." minlength="20" maxlength="1500" required></textarea>
           </label>
           <label>
             <span>Link de arquivos ou referências</span>
             <input type="url" name="link_arquivos" placeholder="Google Drive, site atual, Instagram, referência..." autocomplete="url">
           </label>
           <p class="form-note">Ao enviar, você autoriza a DKF a responder pelos dados informados e confirma que leu a <a href="/privacidade">Política de Privacidade</a> e os <a href="/termos">Termos</a>.</p>
+          <p class="form-status" data-form-status aria-live="polite"></p>
           <button class="btn btn-primary" type="submit">Enviar briefing</button>
         </form>
       </div>

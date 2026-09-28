@@ -56,11 +56,38 @@ for (const file of htmlFiles) {
       fail(file, `pattern de telefone inválido: ${error.message}`);
     }
   }
+
+  if (html.includes('<form')) {
+    for (const match of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/g)) {
+      const attrs = match[1];
+      const body = match[2];
+      if (!/\bdata-secure-form\b/.test(attrs)) fail(file, 'formulário sem proteção JS progressiva');
+      if (!/name="form_started_at"/.test(body)) fail(file, 'formulário sem timestamp anti-spam');
+      if (!/name="_gotcha"/.test(body)) fail(file, 'formulário sem honeypot');
+      if (!/data-form-status/.test(body) || !/aria-live="polite"/.test(body)) {
+        fail(file, 'formulário sem status acessível');
+      }
+      if (/<textarea\b/.test(body) && !/<textarea\b[^>]*\bminlength="\d+"/.test(body)) {
+        fail(file, 'textarea sem minlength');
+      }
+      if (/<textarea\b/.test(body) && !/<textarea\b[^>]*\bmaxlength="\d+"/.test(body)) {
+        fail(file, 'textarea sem maxlength');
+      }
+    }
+  }
 }
 
 const home = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+if (!home.includes('name="robots" content="index, follow, max-image-preview:large"')) {
+  fail('index.html', 'sem robots indexável com preview grande');
+}
+if (!home.includes('name="twitter:image:alt"')) fail('index.html', 'sem texto alternativo para imagem do Twitter Card');
 
 const store = readFileSync(new URL('../servicos.html', import.meta.url), 'utf8');
+if (!store.includes('name="robots" content="index, follow, max-image-preview:large"')) {
+  fail('servicos.html', 'sem robots indexável com preview grande');
+}
+if (!store.includes('name="twitter:image:alt"')) fail('servicos.html', 'sem texto alternativo para imagem do Twitter Card');
 if (/Planner Digital 2025|Reels e Stories 2025|TikTok do Zero ao Viral 2025/.test(store)) {
   fail('servicos.html', 'contém produto datado retirado da vitrine');
 }

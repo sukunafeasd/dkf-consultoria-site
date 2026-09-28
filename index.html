@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DKF Consultoria Digital - Soluções para negócios</title>
   <meta name="description" content="A DKF cria sites, landing pages, automações, Google Meu Negócio, redes sociais e soluções digitais para negócios que querem vender e atender melhor.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0f172a">
   <link rel="canonical" href="https://dkf-consultoria.vercel.app/">
   <meta property="og:type" content="website">
@@ -21,6 +22,7 @@
   <meta name="twitter:title" content="DKF Consultoria Digital">
   <meta name="twitter:description" content="Soluções digitais simples para resolver problemas reais do seu negócio.">
   <meta name="twitter:image" content="https://dkf-consultoria.vercel.app/assets/site/og-home.jpg">
+  <meta name="twitter:image:alt" content="DKF Consultoria Digital - soluções para negócios">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
@@ -430,16 +432,17 @@
           </div>
         </div>
 
-        <form id="formulario-contato" action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal">
+        <form id="formulario-contato" action="https://formspree.io/f/xljddanr" method="POST" class="contact-form reveal" data-secure-form>
           <input type="hidden" name="_subject" value="Novo contato pelo site principal da DKF">
           <input type="hidden" name="_next" value="https://dkf-consultoria.vercel.app/obrigado">
+          <input type="hidden" name="form_started_at" data-form-started-at>
           <label class="form-honeypot" aria-hidden="true">
             <span>Não preencha este campo</span>
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
           </label>
           <label>
             <span>Nome</span>
-            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required>
+            <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" minlength="2" maxlength="80" required>
           </label>
           <label>
             <span>WhatsApp</span>
@@ -447,13 +450,14 @@
           </label>
           <label>
             <span>Tipo de negócio</span>
-            <input type="text" name="negocio" placeholder="Ex.: loja, salão, clínica, restaurante..." autocomplete="organization">
+            <input type="text" name="negocio" placeholder="Ex.: loja, salão, clínica, restaurante..." autocomplete="organization" maxlength="100">
           </label>
           <label>
             <span>O que você precisa resolver?</span>
-            <textarea name="mensagem" rows="4" placeholder="Explique o problema ou a ideia. Ex.: quero melhorar meu perfil, criar uma página, organizar pedidos, aparecer melhor no Google..." required></textarea>
+            <textarea name="mensagem" rows="4" placeholder="Explique o problema ou a ideia. Ex.: quero melhorar meu perfil, criar uma página, organizar pedidos, aparecer melhor no Google..." minlength="20" maxlength="1200" required></textarea>
           </label>
           <p class="form-note">Ao enviar, você autoriza a DKF a responder pelos dados informados e confirma que leu a <a href="/privacidade">Política de Privacidade</a>.</p>
+          <p class="form-status" data-form-status aria-live="polite"></p>
           <button class="btn btn-primary" type="submit">Enviar mensagem</button>
         </form>
       </div>

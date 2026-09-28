@@ -1325,6 +1325,11 @@ h3 {
   background: rgba(5, 10, 18, 0.78);
 }
 
+.contact-form [aria-invalid="true"] {
+  border-color: #f87171;
+  box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.14);
+}
+
 .contact-form button {
   margin-top: 2px;
 }
@@ -1333,6 +1338,26 @@ h3 {
   margin: -2px 0 0;
   color: var(--muted);
   font-size: 0.84rem;
+}
+
+.form-status {
+  min-height: 22px;
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status[data-status="error"] {
+  color: #fecaca;
+}
+
+.form-status[data-status="success"] {
+  color: #bbf7d0;
 }
 
 .form-honeypot {

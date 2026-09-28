@@ -150,23 +150,84 @@ filterButtons.forEach((button) => {
 storeSearch?.addEventListener('input', updateProducts);
 updateProducts();
 
+const showFormStatus = (form, message, type = 'info') => {
+  const status = form.querySelector('[data-form-status]');
+  if (!status) return;
+  status.textContent = message;
+  status.dataset.status = type;
+};
+
+const setFieldInvalid = (field, invalid) => {
+  if (!field) return;
+  if (invalid) field.setAttribute('aria-invalid', 'true');
+  else field.removeAttribute('aria-invalid');
+};
+
+const validateSecureForm = (form) => {
+  const startedAt = Number(form.dataset.startedAt || Date.now());
+  const elapsed = Date.now() - startedAt;
+  const honeypot = form.querySelector('[name="_gotcha"]');
+  const phone = form.querySelector('input[type="tel"]');
+  const message = form.querySelector('textarea[name="mensagem"], textarea[name="descricao"]');
+  const phoneDigits = phone?.value.replace(/\D/g, '') || '';
+  const messageLength = message?.value.trim().length || 0;
+
+  if (honeypot?.value) return false;
+
+  setFieldInvalid(phone, false);
+  setFieldInvalid(message, false);
+
+  if (elapsed < 2500) {
+    showFormStatus(form, 'Aguarde alguns segundos antes de enviar. Isso ajuda a proteger o formulário contra spam.', 'error');
+    return false;
+  }
+
+  if (phone && (phoneDigits.length < 10 || phoneDigits.length > 15)) {
+    setFieldInvalid(phone, true);
+    showFormStatus(form, 'Confira o WhatsApp com DDD antes de enviar.', 'error');
+    phone.focus();
+    return false;
+  }
+
+  if (message && messageLength < 20) {
+    setFieldInvalid(message, true);
+    showFormStatus(form, 'Escreva um pouco mais sobre o que você precisa para a DKF responder melhor.', 'error');
+    message.focus();
+    return false;
+  }
+
+  return true;
+};
+
 const resetSubmitButtons = () => {
-  document.querySelectorAll('form button[type="submit"]').forEach((button) => {
+  document.querySelectorAll('form').forEach((form) => {
+    const button = form.querySelector('button[type="submit"]');
+    if (!button) return;
     button.disabled = false;
     button.textContent = button.dataset.defaultText || button.textContent;
     button.removeAttribute('aria-busy');
+    showFormStatus(form, '');
   });
 };
 
 document.querySelectorAll('form').forEach((form) => {
   const button = form.querySelector('button[type="submit"]');
   if (button) button.dataset.defaultText = button.textContent;
-  form.addEventListener('submit', () => {
+  const startedAtInput = form.querySelector('[data-form-started-at]');
+  form.dataset.startedAt = String(Date.now());
+  if (startedAtInput) startedAtInput.value = new Date().toISOString();
+  form.addEventListener('submit', (event) => {
     if (!button || button.disabled) return;
+    if (!form.checkValidity()) return;
+    if (form.matches('[data-secure-form]') && !validateSecureForm(form)) {
+      event.preventDefault();
+      return;
+    }
     trackEvent('form_submit', form.id || form.querySelector('[name="_subject"]')?.value || 'formulario');
     button.disabled = true;
     button.textContent = 'Enviando...';
     button.setAttribute('aria-busy', 'true');
+    showFormStatus(form, 'Enviando sua mensagem com segurança...', 'success');
   });
 });
 window.addEventListener('pageshow', resetSubmitButtons);
