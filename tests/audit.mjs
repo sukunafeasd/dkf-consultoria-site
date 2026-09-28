@@ -101,6 +101,24 @@ for (const requiredFile of ['site.webmanifest', 'apple-touch-icon.png', 'favicon
   if (!existsSync(new URL(`../${requiredFile}`, import.meta.url))) fail(requiredFile, 'arquivo obrigatório ausente');
 }
 
+const notFound = readFileSync(new URL('../404.html', import.meta.url), 'utf8');
+if (!notFound.includes('name="description"')) fail('404.html', 'sem meta description');
+if (!notFound.includes('noindex, follow')) fail('404.html', 'sem noindex follow');
+
+const thanks = readFileSync(new URL('../obrigado.html', import.meta.url), 'utf8');
+if (!thanks.includes('name="description"')) fail('obrigado.html', 'sem meta description');
+if (!thanks.includes('noindex, follow')) fail('obrigado.html', 'sem noindex follow');
+
+const manifest = JSON.parse(readFileSync(new URL('../site.webmanifest', import.meta.url), 'utf8'));
+if (!manifest.icons?.every((icon) => icon.purpose?.includes('maskable'))) {
+  fail('site.webmanifest', 'ícones sem finalidade maskable');
+}
+
+const securityTxt = readFileSync(new URL('../.well-known/security.txt', import.meta.url), 'utf8');
+for (const requiredLine of ['Contact:', 'Policy:', 'Canonical:', 'Expires:']) {
+  if (!securityTxt.includes(requiredLine)) fail('security.txt', `sem ${requiredLine}`);
+}
+
 try {
   JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
 } catch (error) {
@@ -109,6 +127,7 @@ try {
 
 const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
 if (!sitemap.includes('<lastmod>')) fail('sitemap.xml', 'sem datas de atualização');
+if (!sitemap.includes('<lastmod>2026-09-28</lastmod>')) fail('sitemap.xml', 'datas de atualização desatualizadas');
 
 if (failures.length) {
   console.error(failures.join('\n'));
