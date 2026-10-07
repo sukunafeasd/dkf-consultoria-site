@@ -19,7 +19,8 @@ execute enquanto o projeto precisar continuar inativo.
 
 ## Estrutura
 
-- `style.css`: estilos globais e responsivos.
+- `style.css`: base visual unica, organizada por fundacao, navegacao, abertura,
+  catalogos, formularios e layouts responsivos; sem camadas antigas de overrides.
 - `script.js`: menu mobile, header com scroll, animações de entrada e seleção do briefing.
 - `assets/site/`: imagens do site e previews sociais.
 - `assets/products/`: capas dos produtos da loja.
@@ -59,3 +60,16 @@ Ao alterar produtos, confira:
 - se produtos com edição anual continuam atuais antes de recolocá-los na vitrine.
 
 Produtos desatualizados permanecem fora da vitrine até que conteúdo, capa e checkout sejam revisados em conjunto. Avaliações só devem ser publicadas com conteúdo real e autorização do cliente.
+
+## Revisao visual em espera
+
+A revisao de outubro de 2026 reorganizou a abertura, servicos, referencias,
+vitrine, FAQ, formularios e paginas legais. Capas e botoes de compra usam
+dimensoes estaveis; animacoes nao ocultam conteudo e respeitam movimento reduzido.
+Os testes visuais cobrem sete paginas, cinco larguras de tela e dois formatos
+curtos/horizontais, sem enviar mensagens ou comprar produtos. A revisao nao
+reativa Vercel, GitHub Pages ou qualquer dominio.
+
+`pnpm preview` abre uma previa apenas em `http://127.0.0.1:5196/`.
+Formularios externos ficam bloqueados nesse modo; eventos locais sao descartados.
+Links de compra e contato continuam apontando para seus destinos reais.

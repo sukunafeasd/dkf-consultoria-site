@@ -39,7 +39,7 @@ try {
   const page = await browser.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  for (const width of [1440, 390]) {
+  for (const width of [1920, 1440, 1024, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     for (const path of ['/', '/servicos', '/obrigado', '/404', '/privacidade', '/termos', '/reembolso']) {
       await page.goto(origin + path);
@@ -47,9 +47,33 @@ try {
       assert.equal(await page.locator('main h1').count(), 1);
       if (path === '/' || path === '/servicos') {
         await page.screenshot({ path: resolve(tmpdir(), `dkf-ready-${width}-${path === '/' ? 'home' : 'store'}.png`), fullPage: true });
+        await page.screenshot({ path: resolve(tmpdir(), `dkf-frame-${width}-${path === '/' ? 'home' : 'store'}.png`) });
+      }
+      if (path === '/') {
+        assert.equal(await page.locator('.hero-media img').evaluate(img => img.complete && img.naturalWidth > 0), true);
+        assert.ok(await page.locator('.photo-card img').evaluate(img => img.getBoundingClientRect().height <= 450), 'About image must remain framed');
+        assert.equal(await page.locator('.section-copy').first().evaluate(el => getComputedStyle(el).opacity), '1', 'Scroll animations must not hide content');
       }
     }
   }
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(origin + '/servicos');
+  const rows = await page.locator('.digital-card').evaluateAll(cards => cards.map(card => ({
+    top: Math.round(card.getBoundingClientRect().top),
+    button: Math.round(card.querySelector('.digital-body .btn').getBoundingClientRect().bottom),
+  })));
+  for (const row of rows) assert.ok(rows.filter(other => Math.abs(other.top - row.top) < 2).every(other => Math.abs(other.button - row.button) <= 1), 'Buy buttons in the same row must align');
+  await page.locator('.digital-card').first().scrollIntoViewIfNeeded();
+  await page.screenshot({ path: resolve(tmpdir(), 'dkf-store-grid-refined.png') });
+  for (const viewport of [{width:390,height:640},{width:844,height:390}]) {
+    await page.setViewportSize(viewport);
+    await page.goto(origin + '/');
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    await page.locator('.hero-media img').evaluate(img => img.decode());
+    assert.ok(await page.locator('.hero').evaluate(el => el.getBoundingClientRect().bottom < innerHeight), 'Short screens must show the beginning of the next section');
+    await page.screenshot({path:resolve(tmpdir(),`dkf-short-${viewport.width}.png`)});
+  }
+  await page.setViewportSize({width:390,height:900});
   assert.equal(events.some(event => event.event === 'lead_success'), false, 'Opening the thank-you page is not a submitted contact');
   await page.goto(origin + '/');
   await page.locator('[data-menu-button]').click();
@@ -99,7 +123,7 @@ try {
   });
   await page.goto(origin + '/obrigado');
   assert.deepEqual(errors, []);
-  console.log('PASS browser: 7 pages, desktop/mobile, filters, briefing, form duplicate guard, dynamic return URL, optional storage; no real messages or payments.');
+  console.log('PASS browser: 7 pages, 5 widths and 2 short/landscape viewports, framed photos, aligned shop buttons, filters, menu and forms; no real messages or payments.');
 } finally {
   await browser?.close();
   await new Promise(resolveClose => server.close(resolveClose));

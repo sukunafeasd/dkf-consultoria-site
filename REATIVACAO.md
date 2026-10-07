@@ -44,6 +44,9 @@ Formspree e Kiwify mantem seus proprios dados; o Git nao e backup desses dados.
 - Testes usam simulacoes; nenhuma mensagem real ou pagamento foi enviado.
 - Os 13 checkouts responderam HTTP 200 nesta data. Isso nao comprova preco,
   disponibilidade, entrega, afiliacao, licenca ou funcionamento futuro.
+- Segunda rodada visual: estilos consolidados, abertura com a marca em destaque,
+  catalogos alinhados, formularios e paginas legais refinados; cinco larguras e
+  dois formatos curtos/horizontais testados. Nenhum link de compra foi trocado.
 
 ## Como voltar ao ar
 

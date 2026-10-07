@@ -5,9 +5,10 @@
   "packageManager": "pnpm@11.25.0",
   "description": "Site institucional e loja da DKF Consultoria Digital.",
   "scripts": {
+    "preview": "node scripts/preview.mjs",
     "validate:html": "html-validate \"*.html\"",
     "validate:css": "stylelint \"style.css\"",
-    "validate:js": "node --check script.js && node --check api/csp-report.js && node --check api/event.js && node --check scripts/generate-covers.mjs && node --check scripts/optimize-images.mjs",
+    "validate:js": "node --check script.js && node --check api/csp-report.js && node --check api/event.js && node --check scripts/generate-covers.mjs && node --check scripts/optimize-images.mjs && node --check scripts/preview.mjs && node --check scripts/configure-origin.mjs",
     "audit:local": "node tests/audit.mjs",
     "test:api": "node tests/api.mjs && node tests/origin.mjs",
     "test:browser": "node tests/browser.mjs",
