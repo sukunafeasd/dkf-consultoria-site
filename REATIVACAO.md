@@ -8,6 +8,9 @@
 - Producao pausada. Os vinculos de `dkf-consultoria.vercel.app` e
   `site-modelo-generico.vercel.app` foram removidos; ambos retornaram HTTP 404.
 - Nenhum projeto, checkout, formulario, imagem ou contato foi apagado.
+- GitHub Pages desativado. O endereco antigo era
+  `https://sukunafeasd.github.io/dkf-consultoria-site/`; a configuracao foi removida
+  sem apagar nenhum arquivo nem alterar a visibilidade do repositorio.
 - Deploy automatico desativado em `vercel.json`. A validacao do GitHub continua.
 - Uma pausa de producao nao apaga previas antigas nem e um backup do codigo.
 - As previas estao com Vercel Authentication / Standard Protection ativada;

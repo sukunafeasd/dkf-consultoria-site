@@ -3,7 +3,8 @@
 Site institucional e loja da DKF Consultoria Digital, preparados para reativacao.
 
 **Estado: em espera.** O projeto Vercel foi pausado e os dois dominios foram
-desvinculados. O codigo, imagens, contatos e links Kiwify continuam preservados.
+desvinculados. A publicacao alternativa no GitHub Pages tambem foi desativada.
+O codigo, imagens, contatos e links Kiwify continuam preservados.
 `vercel.json` desativa deploys automaticos de todas as branches. Enviar codigo ao
 GitHub nao deve colocar o site no ar. Isso nao bloqueia um deploy manual: nao o
 execute enquanto o projeto precisar continuar inativo.
