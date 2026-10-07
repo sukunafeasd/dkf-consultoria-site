@@ -35,6 +35,12 @@ try {
   assert.equal(invoke(eventHandler, { method: 'POST', headers: { 'content-type': 'application/json' }, body: { event: 'invalid' } }).statusCode, 400);
   assert.equal(invoke(eventHandler, { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': 'test-success' }, body: { event: 'store_open' } }).statusCode, 204);
   assert.equal(invoke(eventHandler, { method: 'POST', headers: { 'content-type': 'application/json', 'content-length': '4097' }, body: { event: 'store_open' } }).statusCode, 413);
+  assert.equal(invoke(eventHandler, { method: 'POST', headers: { 'content-type': 'application/json' }, body: { event: 'store_open', source: 'a'.repeat(4096) } }).statusCode, 413);
+  let recorded;
+  console.log = (_name, value) => { recorded = value; };
+  invoke(eventHandler, { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': 'privacy-test' }, body: { event: 'store_open', source: 'https://example.com/private?token=secret#fragment' } });
+  assert.equal(recorded.source, 'https://example.com');
+  console.log = () => {};
   assert.equal(invoke(eventHandler, { method: 'POST', headers: { 'content-type': 'application/json' }, body: { event: 'store_open', page: 'https://evil.example/phish' } }).statusCode, 400);
   const eventHeaders = invoke(eventHandler, { method: 'GET', headers: {} }).headers;
   assert.equal(eventHeaders['Cache-Control'], 'no-store, max-age=0');
@@ -48,6 +54,7 @@ try {
   assert.equal(invoke(cspHandler, { method: 'POST', headers: { 'content-type': 'application/csp-report', 'x-forwarded-for': 'test-csp' }, body: { 'csp-report': { 'violated-directive': 'script-src', 'blocked-uri': 'https://example.com/a.js' } } }).statusCode, 204);
   assert.equal(invoke(cspHandler, { method: 'POST', headers: { 'content-type': 'application/reports+json', 'x-forwarded-for': 'test-reporting' }, body: [{ body: { effectiveDirective: 'script-src', blockedURL: 'https://example.com/a.js' } }] }).statusCode, 204);
   assert.equal(invoke(cspHandler, { method: 'POST', headers: { 'content-type': 'application/json', 'content-length': '16385' }, body: {} }).statusCode, 413);
+  assert.equal(invoke(cspHandler, { method: 'POST', headers: { 'content-type': 'application/json' }, body: { value: 'a'.repeat(16384) } }).statusCode, 413);
   assert.equal(invoke(cspHandler, { method: 'POST', headers: { 'content-type': 'application/json', 'x-forwarded-for': 'test-inline' }, body: { 'csp-report': { 'violated-directive': 'script-src', 'blocked-uri': 'inline' } } }).statusCode, 204);
   const cspHeaders = invoke(cspHandler, { method: 'GET', headers: {} }).headers;
   assert.equal(cspHeaders['Cache-Control'], 'no-store, max-age=0');

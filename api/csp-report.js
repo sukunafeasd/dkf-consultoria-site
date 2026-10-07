@@ -67,6 +67,9 @@ module.exports = function handler(request, response) {
   }
   if (!VALID_CONTENT_TYPES.has(getContentType(request))) return response.status(415).end();
   if (getContentLength(request) > MAX_BODY_BYTES) return response.status(413).end();
+  try {
+    if (Buffer.byteLength(JSON.stringify(request.body ?? null), 'utf8') > MAX_BODY_BYTES) return response.status(413).end();
+  } catch { return response.status(400).end(); }
   if (isRateLimited(request)) return response.status(429).end();
 
   const rawReport = Array.isArray(request.body) ? request.body[0]?.body || request.body[0] : request.body;

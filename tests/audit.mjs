@@ -129,14 +129,20 @@ for (const requiredLine of ['Contact:', 'Policy:', 'Canonical:', 'Expires:']) {
 }
 
 try {
-  JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
+  const config = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8'));
+  if (typeof config.git?.deploymentEnabled !== 'boolean') fail('vercel.json', 'publicacao automatica precisa de uma escolha explicita');
 } catch (error) {
   fail('vercel.json', error.message);
 }
 
 const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
 if (!sitemap.includes('<lastmod>')) fail('sitemap.xml', 'sem datas de atualização');
-if (!sitemap.includes('<lastmod>2026-09-28</lastmod>')) fail('sitemap.xml', 'datas de atualização desatualizadas');
+for (const match of sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+  const date = new Date(match[1]);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(match[1]) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== match[1]) {
+    fail('sitemap.xml', 'data de atualizacao invalida');
+  }
+}
 
 if (failures.length) {
   console.error(failures.join('\n'));

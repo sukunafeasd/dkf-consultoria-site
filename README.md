@@ -1,6 +1,12 @@
 # DKF Consultoria Digital
 
-Site institucional e loja da DKF Consultoria Digital, publicados na Vercel.
+Site institucional e loja da DKF Consultoria Digital, preparados para reativacao.
+
+**Estado: em espera.** O projeto Vercel foi pausado e os dois dominios foram
+desvinculados. O codigo, imagens, contatos e links Kiwify continuam preservados.
+`vercel.json` desativa deploys automaticos de todas as branches. Enviar codigo ao
+GitHub nao deve colocar o site no ar. Isso nao bloqueia um deploy manual: nao o
+execute enquanto o projeto precisar continuar inativo.
 
 ## Páginas
 
@@ -21,11 +27,12 @@ Site institucional e loja da DKF Consultoria Digital, publicados na Vercel.
 - `tests/audit.mjs`: verificação de IDs, imagens, links locais e configurações.
 - `.github/workflows/quality.yml`: validação automática a cada envio para o GitHub.
 
-## Publicação
+## Reativacao
 
-O deploy principal é feito pela Vercel em:
-
-https://dkf-consultoria.vercel.app/
+O projeto preservado e `dkf-consultoria`, na equipe
+`mouradieferson4-4949s-projects`. Consulte [REATIVACAO.md](REATIVACAO.md)
+antes de associar um dominio e retomar a publicacao. Os nomes antigos nao foram
+comprados ou reservados; a disponibilidade precisa ser conferida novamente.
 
 ## Manutenção
 
@@ -34,6 +41,8 @@ Instale as dependências e valide o projeto antes de publicar:
 ```powershell
 pnpm install
 pnpm test
+pnpm exec playwright install chromium
+pnpm test:browser
 ```
 
 As capas próprias podem ser regeneradas com `pnpm exec node scripts/generate-covers.mjs`. As versões WebP são atualizadas com `pnpm exec node scripts/optimize-images.mjs`.

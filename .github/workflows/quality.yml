@@ -28,3 +28,7 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Validar site
         run: pnpm test
+      - name: Preparar navegador de testes
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Validar navegacao sem publicar
+        run: pnpm test:browser

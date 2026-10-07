@@ -157,6 +157,13 @@ const showFormStatus = (form, message, type = 'info') => {
   status.dataset.status = type;
 };
 
+const readSession = (key) => {
+  try { return sessionStorage.getItem(key); } catch { return null; }
+};
+const writeSession = (key, value) => {
+  try { sessionStorage.setItem(key, value); } catch { /* Storage is optional for contact forms. */ }
+};
+
 const setFieldInvalid = (field, invalid) => {
   if (!field) return;
   if (invalid) field.setAttribute('aria-invalid', 'true');
@@ -216,14 +223,20 @@ document.querySelectorAll('form').forEach((form) => {
   const startedAtInput = form.querySelector('[data-form-started-at]');
   form.dataset.startedAt = String(Date.now());
   if (startedAtInput) startedAtInput.value = new Date().toISOString();
+  const returnPage = form.querySelector('[name="_next"]');
+  if (returnPage && ['http:', 'https:'].includes(location.protocol)) {
+    returnPage.value = new URL('/obrigado', location.origin).href;
+  }
   form.addEventListener('submit', (event) => {
-    if (!button || button.disabled) return;
+    if (!button) return;
+    if (button.disabled) { event.preventDefault(); return; }
     if (!form.checkValidity()) return;
     if (form.matches('[data-secure-form]') && !validateSecureForm(form)) {
       event.preventDefault();
       return;
     }
     trackEvent('form_submit', form.id || form.querySelector('[name="_subject"]')?.value || 'formulario');
+    writeSession('dkf_lead_pending', String(Date.now()));
     button.disabled = true;
     button.textContent = 'Enviando...';
     button.setAttribute('aria-busy', 'true');
@@ -238,11 +251,15 @@ document.querySelectorAll('[data-current-year]').forEach((item) => {
 
 const trackEvent = (eventName, product = '') => {
   const params = new URLSearchParams(window.location.search);
+  let source = params.get('utm_source') || 'direto';
+  if (!params.get('utm_source') && document.referrer) {
+    try { source = new URL(document.referrer).origin; } catch { source = 'direto'; }
+  }
   const payload = JSON.stringify({
     event: eventName,
     page: window.location.pathname,
     product: product.slice(0, 100),
-    source: (params.get('utm_source') || document.referrer || 'direto').slice(0, 120),
+    source: source.slice(0, 120),
     campaign: (params.get('utm_campaign') || '').slice(0, 80)
   });
 
@@ -275,7 +292,9 @@ document.addEventListener('click', (event) => {
   trackEvent(eventName, product);
 });
 
-if (window.location.pathname === '/obrigado' && !sessionStorage.getItem('dkf_lead_success')) {
-  sessionStorage.setItem('dkf_lead_success', '1');
+const pendingLead = Number(readSession('dkf_lead_pending'));
+if (['/obrigado', '/obrigado.html'].includes(window.location.pathname)
+    && pendingLead > 0 && Date.now() >= pendingLead && Date.now() - pendingLead < 900_000) {
+  writeSession('dkf_lead_pending', '');
   trackEvent('lead_success', 'formulario');
 }

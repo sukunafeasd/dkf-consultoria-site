@@ -60,6 +60,9 @@ module.exports = function handler(request, response) {
   }
   if (!isJsonRequest(request)) return response.status(415).end();
   if (getContentLength(request) > MAX_BODY_BYTES) return response.status(413).end();
+  try {
+    if (Buffer.byteLength(JSON.stringify(request.body ?? null), 'utf8') > MAX_BODY_BYTES) return response.status(413).end();
+  } catch { return response.status(400).end(); }
   if (isRateLimited(request)) return response.status(429).end();
 
   const event = String(request.body?.event || '');
@@ -67,11 +70,15 @@ module.exports = function handler(request, response) {
   const page = cleanField(request.body?.page, 80);
   if (page && !page.startsWith('/')) return response.status(400).end();
 
+  let source = cleanField(request.body?.source, 120);
+  if (/^https?:\/\//i.test(source)) {
+    try { source = new URL(source).origin; } catch { source = 'invalid'; }
+  }
   console.log('Conversion event', {
     event,
     page,
     product: cleanField(request.body?.product, 100),
-    source: cleanField(request.body?.source, 120),
+    source,
     campaign: cleanField(request.body?.campaign, 80)
   });
   return response.status(204).end();

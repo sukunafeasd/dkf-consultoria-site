@@ -9,13 +9,16 @@
     "validate:css": "stylelint \"style.css\"",
     "validate:js": "node --check script.js && node --check api/csp-report.js && node --check api/event.js && node --check scripts/generate-covers.mjs && node --check scripts/optimize-images.mjs",
     "audit:local": "node tests/audit.mjs",
-    "test:api": "node tests/api.mjs",
+    "test:api": "node tests/api.mjs && node tests/origin.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "configure:origin": "node scripts/configure-origin.mjs",
     "test": "pnpm run validate:html && pnpm run validate:css && pnpm run validate:js && pnpm run audit:local && pnpm run test:api"
   },
   "devDependencies": {
     "html-validate": "11.16.0",
+    "playwright": "1.62.1",
+    "sharp": "0.35.4",
     "stylelint": "17.15.0",
-    "stylelint-config-standard": "40.0.0",
-    "sharp": "0.35.4"
+    "stylelint-config-standard": "40.0.0"
   }
 }
