@@ -10,6 +10,11 @@
 - Nenhum projeto, checkout, formulario, imagem ou contato foi apagado.
 - Deploy automatico desativado em `vercel.json`. A validacao do GitHub continua.
 - Uma pausa de producao nao apaga previas antigas nem e um backup do codigo.
+- As previas estao com Vercel Authentication / Standard Protection ativada;
+  nao foram abertas ao publico nem foi criado segredo de bypass.
+- A integracao Vercel tambem sinalizou `Account is blocked` na conta antiga.
+  Isso e separado da pausa solicitada. Antes de um novo deploy, regularizar a
+  restricao dessa conta junto a Vercel; o codigo nao remove limites da plataforma.
 
 ## O que existe
 
@@ -48,7 +53,8 @@ Formspree e Kiwify mantem seus proprios dados; o Git nao e backup desses dados.
    sitemap, robots, security.txt e retornos estaticos, sem tocar nos checkouts.
 4. Rodar `pnpm install --frozen-lockfile`, `pnpm test`,
    `pnpm exec playwright install chromium` e `pnpm test:browser`.
-5. Enviar o codigo revisado ao GitHub. Na Vercel, retomar o projeto e criar um
+5. Conferir que a conta Vercel permite novos deploys e enviar o codigo revisado
+   ao GitHub. Na Vercel, retomar o projeto e criar um
    deploy da revisao atual; apenas retomar a pausa serviria o codigo antigo.
 6. Associar o dominio a Production e conferir paginas, imagens, formulários e
    links sem fazer pagamentos de teste desnecessarios.
